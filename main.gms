@@ -205,7 +205,7 @@ $title magpie
 * 
 * 
 * 
-* Last modification (input data): Wed Sep 01 22:27:51 2021
+* Last modification (input data): Mon Sep 13 18:52:06 2021
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -231,7 +231,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  default
+$setglobal c_title  CE_agri
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -271,7 +271,7 @@ $setglobal landconversion  global_static_aug18
 
 $setglobal transport  gtap_nov12
 $setglobal area_equipped_for_irrigation  endo_apr13
-$setglobal water_demand  agr_sector_aug13
+$setglobal water_demand  all_sectors_aug13
 $setglobal water_availability  total_water_aug13
 $setglobal biodiversity  bv_btc_mar21
 $setglobal climate  static

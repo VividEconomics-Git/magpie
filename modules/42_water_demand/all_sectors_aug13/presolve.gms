@@ -60,8 +60,11 @@ else
  if((s42_irrig_eff_scenario = 1),
  	v42_irrig_eff.fx(j) = s42_irrigation_efficiency;
  Elseif (s42_irrig_eff_scenario=2),
- 	v42_irrig_eff.fx(j) = 1/(1+2.718282**((-22160-sum(cell(i,j),im_gdp_pc_mer("y1995",i)))/37767));
+ 	v42_irrig_eff.fx(j) = 1/(1+2.718282**((-22160-sum(cell(i,j),im_gdp_pc_mer("y1995",i)))/37767)) + s42_irrigation_efficiency_pc_increase * (m_year(t) - sm_fix_SSP2)/5;
  Elseif (s42_irrig_eff_scenario=3),
 	v42_irrig_eff.fx(j) = 1/(1+2.718282**((-22160-sum(cell(i,j),im_gdp_pc_mer(t,i)))/37767));
  );
 );
+
+* limit irrigation efficiency to 90%. This is based on literature that says max efficiency of things like microirrigation is 90-95%
+v42_irrig_eff.fx(j) $ (v42_irrig_eff.l(j) > 0.9) = 0.9;

@@ -161,6 +161,7 @@ parameters
  p15_foodwaste_growth(t,i)                    Increase in food waste over time relative to the historical time step of EAT Lancet diets (1)
  i15_kcal_pc_scen_target(t,i,kfo)             Target for per capita food consumption according to an exogenous diet scenario (kcal per capita per day)
  i15_exo_foodscen_fader(t,i)                  Fader that converges per capita food consumption to an exogenous diet scenario (1)
+ i15_exo_wastescen_fader(t,i)                 Fader that converges food waste to an exogenous waste scenario (1)
 
 * country-specific scenario switch
  p15_country_dummy(iso)                       Dummy parameter indicating whether country is affected by diet scenarios (1)

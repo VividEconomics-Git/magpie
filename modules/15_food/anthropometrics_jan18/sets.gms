@@ -155,13 +155,13 @@ sets
 	 lin_99-98-90pc_20_50-60-100, sigmoid_20pc_20_50, sigmoid_50pc_20_50, sigmoid_80pc_20_50 /
 
   t_scen15(t_all) Target years for transition to exogenous scenario diets
-       / y2010, y2030, y2050 /
+       / y2010, y2020, y2025, y2030, y2035, y2040, y2045, y2050 /
 
   kcal_scen15  Scenario of daily per capita calorie intake
-       / 2100kcal, 2500kcal /
+       / 2100kcal, 2500kcal, bau /
 
   EAT_scen15  Scenario of daily per capita calorie intake
-       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat /
+       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, scp_90, scp_70, scp_50, scp_30, scp_10, n1_20_50, bau, scp_10_80, scp_13_70, scp_05_20, bau_allyears, scp_10_70_wdairy, scp_10_70_wdairy80 /
 
    EAT_staples(kfo) All staple food products according to EAT Lancet definition
        / tece,maiz,trce,rice_pro,potato,cassav_sp /

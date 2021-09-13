@@ -5,6 +5,12 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
+scalars
+
+s44_regen_ag     Turn regenerative ag BII coefficients for cropland and pastureland on      (1)      / 1 /
+*                                      1: on
+*                                      0: off
+
 $setglobal c44_price_bv_loss  p0
 
 
