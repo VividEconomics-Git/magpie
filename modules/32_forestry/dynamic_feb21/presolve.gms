@@ -157,4 +157,74 @@ pc32_yield_forestry_future_reg(i)$(pc32_yield_forestry_future_reg(i) = 0) =  sma
 p32_updated_gs_reg(t,i) = 1;
 p32_updated_gs_reg(t,i)$(sum((cell(i,j),ac_sub),p32_land(t,j,"plant",ac_sub))>0) = (sum((cell(i,j),ac_sub),(pm_timber_yield(t,j,ac_sub,"forestry") / sm_wood_density) * p32_land(t,j,"plant",ac_sub))/ sum((cell(i,j),ac_sub),p32_land(t,j,"plant",ac_sub)));
 
+
+** set bii coefficients
+p32_bii_coeff(type32,bii_class_secd,potnatveg) = 0;
+if(s32_aff_bii_coeff = 0,
+    if(m_year(t) <= 2020,
+        p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2020","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2025),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2025","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2030),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2030","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2035),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2035","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2040),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2040","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2045),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2045","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) > 2045),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2050","%c44_forestry_intensities%", potnatveg);
+    );
+elseif s32_aff_bii_coeff = 1,
+    if(m_year(t) <= 2020,
+        p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2020","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2025),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2025","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2030),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2030","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2035),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2035","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2040),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2040","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2045),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2045","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) > 2045),
+            p32_bii_coeff("aff",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2050","%c44_forestry_intensities%", potnatveg);
+    );
+);
+
+if(m_year(t) <= 2020,
+        p32_bii_coeff("ndc",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2020","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2025),
+            p32_bii_coeff("ndc",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2025","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2030),
+            p32_bii_coeff("ndc",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2030","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2035),
+            p32_bii_coeff("ndc",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2035","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2040),
+            p32_bii_coeff("ndc",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2040","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2045),
+            p32_bii_coeff("ndc",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2045","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) > 2045),
+            p32_bii_coeff("ndc",bii_class_secd,potnatveg) = fm_bii_coeff(bii_class_secd,"y2050","%c44_forestry_intensities%", potnatveg);
+    );
+
+if(m_year(t) <= 2020,
+        p32_bii_coeff("plant",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2020","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2025),
+            p32_bii_coeff("plant",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2025","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2030),
+            p32_bii_coeff("plant",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2030","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2035),
+            p32_bii_coeff("plant",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2035","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2040),
+            p32_bii_coeff("plant",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2040","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) = 2045),
+            p32_bii_coeff("plant",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2045","%c44_forestry_intensities%", potnatveg);
+        Elseif(m_year(t) > 2045),
+            p32_bii_coeff("plant",bii_class_secd,potnatveg) = fm_bii_coeff("timber","y2050","%c44_forestry_intensities%", potnatveg);
+    );
+
+
 *** EOF presolve.gms ***

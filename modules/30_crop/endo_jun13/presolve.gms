@@ -24,3 +24,19 @@ vm_area.up(j,bioen_type_30,bioen_water_30)=Inf;
 
 crpmax30(crp30) = yes$(f30_rotation_max_shr(crp30) < 1);
 crpmin30(crp30) = yes$(f30_rotation_min_shr(crp30) > 0);
+
+if(m_year(t) <= 2020,
+    p30_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2020","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2025),
+        p30_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2025","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2030),
+        p30_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2030","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2035),
+        p30_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2035","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2040),
+        p30_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2040","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2045),
+        p30_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2045","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) > 2045),
+        p30_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2045","%c44_forestry_intensities%",potnatveg);
+);

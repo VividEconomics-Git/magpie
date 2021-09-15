@@ -59,8 +59,8 @@
 *' The biodiversity value for cropland is calculated separately for annual and perennial crops:
  q30_bv_ann(j2,potnatveg) .. vm_bv(j2,"crop_ann",potnatveg)
  					=e=
- 					sum((crop_ann30,w), vm_area(j2,crop_ann30,w)) * fm_bii_coeff("crop_ann",potnatveg) * fm_luh2_side_layers(j2,potnatveg);
+ 					sum((crop_ann30,w), vm_area(j2,crop_ann30,w)) * fm_bii_coeff("crop_ann",t,"%c44_forestry_intensities%",potnatveg) * fm_luh2_side_layers(j2,potnatveg);
 
  q30_bv_per(j2,potnatveg) .. vm_bv(j2,"crop_per",potnatveg)
  					=e=
- 					sum((crop_per30,w), vm_area(j2,crop_per30,w)) * fm_bii_coeff("crop_per",potnatveg) * fm_luh2_side_layers(j2,potnatveg);
+ 					sum((crop_per30,w), vm_area(j2,crop_per30,w)) * fm_bii_coeff("crop_per",t,"%c44_forestry_intensities%",potnatveg) * fm_luh2_side_layers(j2,potnatveg);

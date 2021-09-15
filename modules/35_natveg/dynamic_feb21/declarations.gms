@@ -37,6 +37,7 @@ parameters
  p35_region_prot_shr(i)	                  		  Land protection share of the region (1)
  p35_country_dummy(iso)		                      Dummy parameter indicating whether country is affected by selected land protection policy (1)
  i35_land_iso(iso)								  Total land area at ISO level (mio. ha)
+ p35_bii_coeff(bii_class44, potnatveg)             BII coefficients
 ;
 
 equations

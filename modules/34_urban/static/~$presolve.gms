@@ -24,3 +24,4 @@ if(m_year(t) <= 2020,
         Elseif(m_year(t) > 2045),
             vm_bv.fx(j,"urban", potnatveg) = pcm_land(j,"urban") * fm_bii_coeff("urban","y2050","%c44_forestry_intensities%", potnatveg) * fm_luh2_side_layers(j,potnatveg);
     );
+vm_bv.fx(j,"urban", potnatveg) = pcm_land(j,"urban") * fm_bii_coeff("urban",t,"%c44_forestry_intensities%",potnatveg) * fm_luh2_side_layers(j,potnatveg);

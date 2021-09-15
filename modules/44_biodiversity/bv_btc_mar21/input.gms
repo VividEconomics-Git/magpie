@@ -13,8 +13,11 @@ s44_regen_ag     Turn regenerative ag BII coefficients for cropland and pasturel
 
 $setglobal c44_price_bv_loss  p0
 
+$setglobal c44_forestry_intensities  off
+*   options:   off, minimal, intense
 
-table fm_bii_coeff(bii_class44,potnatveg) bii coeff (unitless)
+
+table fm_bii_coeff(bii_class44,t_all, bii_intensities, potnatveg) bii coeff (unitless)
 $ondelim
 $include "./modules/44_biodiversity/bv_btc_mar21/input/f44_bii_coeff.cs3"
 $offdelim

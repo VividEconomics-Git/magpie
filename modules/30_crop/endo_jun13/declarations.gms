@@ -20,6 +20,9 @@ equations
  q30_bv_per(j,potnatveg)         Biodiversity value of perennial cropland (Mha)
 ;
 
+parameters
+p30_bii_coeff(bii_class44, potnatveg)        bii coefficients for give intensity
+
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
  ov_area(t,j,kcr,w,type)             Agricultural production area (mio. ha)

@@ -15,7 +15,7 @@ equations
 ;
 
 parameters
- p31_bii_coeff(bii_class44, potnatveg)      bii coefficients for current time period and intensity option
+ p31_bii_coeff(bii_class44, potnatveg)      bii coefficients for 
 
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

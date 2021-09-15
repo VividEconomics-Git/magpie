@@ -153,3 +153,21 @@ elseif s35_hvarea = 1,
  v35_hvarea_primforest.fx(j) = (vm_land.l(j,"primforest") - vm_land.lo(j,"primforest"))*s35_hvarea_primforest*m_timestep_length_forestry;
  v35_hvarea_other.fx(j,ac_sub) = (v35_other.l(j,ac_sub) - v35_other.lo(j,ac_sub))*s35_hvarea_other*m_timestep_length_forestry;
 );
+
+
+
+if(m_year(t) <= 2020,
+    p35_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2020","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2025),
+        p35_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2025","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2030),
+        p35_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2030","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2035),
+        p35_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2035","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2040),
+        p35_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2040","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) = 2045),
+        p35_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2045","%c44_forestry_intensities%",potnatveg);
+    Elseif(m_year(t) > 2045),
+        p35_bii_coeff(bii_class44, potnatveg) = fm_bii_coeff(bii_class44,"y2045","%c44_forestry_intensities%",potnatveg);
+);
