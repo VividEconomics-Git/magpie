@@ -26,6 +26,24 @@
                            /(p62_dem_food_lh(i2)))
                       *(1-s62_historical)
                       ;
+                      
+q62_dem_material_int(i2,kall) ..
+                      vm_dem_material_int(i2,kall)
+                      =e=
+                      sum(ct,f62_dem_material(ct,i2,kall))*s62_historical
+                      +
+                      (p62_dem_material_lh(i2,kall)*
+                           sum(kfo, vm_dem_food.l(i2,kfo))
+                           /(p62_dem_food_lh(i2)))
+                      *(1-s62_historical)
+                      ;
+
+q62_dem_material_textiles(i2,textiles) ..
+                      vm_dem_material(i2,textiles)
+                      =e=
+                      vm_dem_material_int(i2,textiles) * sum(ct,f62_demand_modifier(ct,"%c62_textile_demand%"))
+                      ;
+
 
 *' Results are stored in the interface `vm_dem_material` and this interface
 *' is then used in demand([16_demand]) module as a part of global supply-demand

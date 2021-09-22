@@ -13,4 +13,15 @@ sets
          a1,a2,b1,b2,
          history,
          SSP2_lowls,SSP2_lowcal /
+
+
+scen_62_textile   Textile demand future scenario
+/
+default, decrease
+/
+
+textiles(kall)    Textile products
+/
+cottn_pro, fibres
+/
 ;

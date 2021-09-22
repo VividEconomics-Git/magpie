@@ -17,15 +17,21 @@ parameters
 
 positive variables
   vm_dem_material(i,kall)        Demand for material usage (mio. tDM per yr)
+  vm_dem_material_int(i,kall)    Intermediate variable for textiles
 ;
 
 equations
   q62_dem_material(i,kall)       Estimating material demand (mio. tDM per yr)
+  q62_dem_material_int(i,kall)  Intermediate equation for textiles
+  q62_dem_material_textiles(i,textiles)  Textiles demand scaled based on scenarios
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
- ov_dem_material(t,i,kall,type)   Demand for material usage (mio. tDM per yr)
- oq62_dem_material(t,i,kall,type) Estimating material demand (mio. tDM per yr)
+ ov_dem_material(t,i,kall,type)                Demand for material usage (mio. tDM per yr)
+ ov_dem_material_int(t,i,kall,type)            Intermediate variable for textiles
+ oq62_dem_material(t,i,kall,type)              Estimating material demand (mio. tDM per yr)
+ oq62_dem_material_int(t,i,kall,type)          Intermediate equation for textiles
+ oq62_dem_material_textiles(t,i,textiles,type) Textiles demand scaled based on scenarios
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################

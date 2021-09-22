@@ -18,12 +18,24 @@ if (sum(sameas(t_past,t),1) = 1,
 *' @stop
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
- ov_dem_material(t,i,kall,"marginal")   = vm_dem_material.m(i,kall);
- oq62_dem_material(t,i,kall,"marginal") = q62_dem_material.m(i,kall);
- ov_dem_material(t,i,kall,"level")      = vm_dem_material.l(i,kall);
- oq62_dem_material(t,i,kall,"level")    = q62_dem_material.l(i,kall);
- ov_dem_material(t,i,kall,"upper")      = vm_dem_material.up(i,kall);
- oq62_dem_material(t,i,kall,"upper")    = q62_dem_material.up(i,kall);
- ov_dem_material(t,i,kall,"lower")      = vm_dem_material.lo(i,kall);
- oq62_dem_material(t,i,kall,"lower")    = q62_dem_material.lo(i,kall);
+ ov_dem_material(t,i,kall,"marginal")                = vm_dem_material.m(i,kall);
+ ov_dem_material_int(t,i,kall,"marginal")            = vm_dem_material_int.m(i,kall);
+ oq62_dem_material(t,i,kall,"marginal")              = q62_dem_material.m(i,kall);
+ oq62_dem_material_int(t,i,kall,"marginal")          = q62_dem_material_int.m(i,kall);
+ oq62_dem_material_textiles(t,i,textiles,"marginal") = q62_dem_material_textiles.m(i,textiles);
+ ov_dem_material(t,i,kall,"level")                   = vm_dem_material.l(i,kall);
+ ov_dem_material_int(t,i,kall,"level")               = vm_dem_material_int.l(i,kall);
+ oq62_dem_material(t,i,kall,"level")                 = q62_dem_material.l(i,kall);
+ oq62_dem_material_int(t,i,kall,"level")             = q62_dem_material_int.l(i,kall);
+ oq62_dem_material_textiles(t,i,textiles,"level")    = q62_dem_material_textiles.l(i,textiles);
+ ov_dem_material(t,i,kall,"upper")                   = vm_dem_material.up(i,kall);
+ ov_dem_material_int(t,i,kall,"upper")               = vm_dem_material_int.up(i,kall);
+ oq62_dem_material(t,i,kall,"upper")                 = q62_dem_material.up(i,kall);
+ oq62_dem_material_int(t,i,kall,"upper")             = q62_dem_material_int.up(i,kall);
+ oq62_dem_material_textiles(t,i,textiles,"upper")    = q62_dem_material_textiles.up(i,textiles);
+ ov_dem_material(t,i,kall,"lower")                   = vm_dem_material.lo(i,kall);
+ ov_dem_material_int(t,i,kall,"lower")               = vm_dem_material_int.lo(i,kall);
+ oq62_dem_material(t,i,kall,"lower")                 = q62_dem_material.lo(i,kall);
+ oq62_dem_material_int(t,i,kall,"lower")             = q62_dem_material_int.lo(i,kall);
+ oq62_dem_material_textiles(t,i,textiles,"lower")    = q62_dem_material_textiles.lo(i,textiles);
 *##################### R SECTION END (OUTPUT DEFINITIONS) ######################

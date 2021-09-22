@@ -6,9 +6,9 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 
-$setglobal c73_wood_scen  construction
+$setglobal c73_wood_scen  default
 * options default, construction
-$setglobal c73_woodfuel_scen  decrease
+$setglobal c73_woodfuel_scen  default
 * options default, decrease
 $setglobal c73_build_demand  BAU
 * options BAU, 10pc, 50pc, 90pc

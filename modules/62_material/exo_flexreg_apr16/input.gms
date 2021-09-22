@@ -5,6 +5,14 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
+$setglobal c62_textile_demand  decrease
+* options default, decrease
+;
+
+table f62_demand_modifier(t_all,scen_62_textile)  Textile demand modifier (1)
+$ondelim
+$include "./modules/62_material/input/f62_demand_modifier.csv"
+$offdelim;
 
 table f62_dem_material(t_all,i,kall)  Historical material demand (mio. tDM)
 $ondelim
