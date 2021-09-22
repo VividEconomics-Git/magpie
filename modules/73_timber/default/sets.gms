@@ -45,6 +45,11 @@ scen_73 Forestry future scenario
 nopaper, construction
 /
 
+scen_73_woodfuel Woodfuel future scenario
+/
+default, decrease
+/
+
 build_scen Building wood scenario
 /
 BAU, 10pc, 50pc, 90pc

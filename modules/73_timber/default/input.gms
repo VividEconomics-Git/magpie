@@ -6,8 +6,10 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 
-$setglobal c73_wood_scen  default
+$setglobal c73_wood_scen  construction
 * options default, construction
+$setglobal c73_woodfuel_scen  decrease
+* options default, decrease
 $setglobal c73_build_demand  BAU
 * options BAU, 10pc, 50pc, 90pc
 
@@ -56,6 +58,12 @@ $offdelim
 table f73_demand_modifier(t_ext,scen_73) Factor diminishing paper use  (1)
 $ondelim
 $include "./modules/73_timber/input/f73_demand_modifier.csv"
+$offdelim
+;
+
+table f73_demand_modifier_woodfuel(t_ext,scen_73_woodfuel) Factor change in wood fuel use  (1)
+$ondelim
+$include "./modules/73_timber/input/f73_demand_modifier_woodfuel.csv"
 $offdelim
 ;
 

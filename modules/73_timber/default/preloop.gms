@@ -20,6 +20,7 @@ loop(t_all$(m_year(t_all) >= sm_fix_SSP2 AND m_year(t_all) <= 2150),
           ;
 );
 
+
 ** Aggregate from ISO country level to MAgPIE region level
 p73_timber_demand_gdp_pop(t_all,i,kforestry) = sum((i_to_iso(i,iso),kforestry_to_woodprod(kforestry,total_wood_products)),p73_forestry_demand_prod_specific(t_all,iso,total_wood_products)) * s73_timber_demand_switch ;
 
@@ -42,6 +43,10 @@ display p73_timber_demand_gdp_pop;
 $ifthen "%c73_wood_scen%" == "construction"
 p73_timber_demand_gdp_pop(t_all,i,"wood") = p73_timber_demand_gdp_pop(t_all,i,"wood") * f73_demand_modifier(t_all,"%c73_wood_scen%");
 $endif
+
+** Alternative woodfuel scenarios
+p73_timber_demand_gdp_pop(t_all,i,"woodfuel") = p73_timber_demand_gdp_pop(t_all,i,"woodfuel") * f73_demand_modifier_woodfuel(t_all,"%c73_woodfuel_scen%");
+
 
 ** Convert to tDM from mio m3
 ** p73_timber_demand_gdp_pop is in mio m^3
