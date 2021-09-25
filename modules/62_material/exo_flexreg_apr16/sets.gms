@@ -24,4 +24,13 @@ textiles(kall)    Textile products
 /
 cottn_pro, fibres
 /
+
+non_textiles(kall)    Non-textile products
+/
+tece,maiz,trce,rice_pro,soybean,rapeseed,groundnut,sunflower,oilpalm,puls_pro,
+   potato,cassav_sp,sugr_cane,sugr_beet,others,foddr, pasture, begr, betr,
+   oils,oilcakes,sugar,molasses,alcohol,ethanol,distillers_grain,brans,scp,
+   livst_pig,livst_chick, livst_egg, livst_milk, livst_rum, fish,
+   res_cereals, res_fibrous, res_nonfibrous, wood, woodfuel
+/
 ;

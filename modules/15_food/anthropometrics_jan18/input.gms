@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 scalars
-s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 0 /
+s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 1 /
 *                                      1 or 0
 
 $setglobal c15_food_scenario  SSP2
@@ -35,16 +35,16 @@ $setglobal c15_rumdairy_scp_scen  constant
 $setglobal c15_livescen_target  constant
 
 
-$setglobal c15_exo_scen_targetyear  y2050
+$setglobal c15_exo_scen_targetyear  y2025
 *   options:   y2030, y2050
 
 $setglobal c15_exo_wastescen_targetyear  y2050
 *   options:   y2025, y2030, y2050
 
-$setglobal c15_kcal_scen  healthy_BMI
+$setglobal c15_kcal_scen  bau
 *   options:   healthy_BMI, 2100kcal, 2500kcal, bau
 
-$setglobal c15_EAT_scen  FLX
+$setglobal c15_EAT_scen  scp_10_70_wdairy80
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 
@@ -92,11 +92,11 @@ scalar s15_maxiter Scalar defining maximum number of iterations (1) / 5 /;
 scalar s15_convergence Convergence criterion (1) / 0.005 /;
 * maximum relative per-capita gdp difference within a region between two iteratios
 
-scalar s15_exo_waste Switch for transition towards exogenous food waste scenario (1)  / 0 /;
+scalar s15_exo_waste Switch for transition towards exogenous food waste scenario (1)  / 1 /;
 
-scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.2 /;
+scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.1 /;
 
-scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 0 /;
+scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 1 /;
 
 scalar s15_alc_scen Scenario target for the inclusion of alcohol in the EAT-Lancet diet (1)  / 0.014 /;
 

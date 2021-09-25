@@ -16,32 +16,27 @@
 *' ratio beween the food demand from last timestep and the food demand from
 *' the last historical time step.
 
- q62_dem_material(i2,kall) ..
-                      vm_dem_material(i2,kall)
+ q62_dem_material(i2,non_textiles) ..
+                      vm_dem_material(i2,non_textiles)
                       =e=
-                      sum(ct,f62_dem_material(ct,i2,kall))*s62_historical
+                      sum(ct,f62_dem_material(ct,i2,non_textiles))*s62_historical
                       +
-                      (p62_dem_material_lh(i2,kall)*
+                      (p62_dem_material_lh(i2,non_textiles)*
                            sum(kfo, vm_dem_food.l(i2,kfo))
                            /(p62_dem_food_lh(i2)))
                       *(1-s62_historical)
                       ;
                       
-q62_dem_material_int(i2,kall) ..
-                      vm_dem_material_int(i2,kall)
-                      =e=
-                      sum(ct,f62_dem_material(ct,i2,kall))*s62_historical
-                      +
-                      (p62_dem_material_lh(i2,kall)*
-                           sum(kfo, vm_dem_food.l(i2,kfo))
-                           /(p62_dem_food_lh(i2)))
-                      *(1-s62_historical)
-                      ;
 
 q62_dem_material_textiles(i2,textiles) ..
                       vm_dem_material(i2,textiles)
                       =e=
-                      vm_dem_material_int(i2,textiles) * sum(ct,f62_demand_modifier(ct,"%c62_textile_demand%"))
+                      (sum(ct,f62_dem_material(ct,i2,textiles))*s62_historical
+                      +
+                      (p62_dem_material_lh(i2,textiles)*
+                           sum(kfo, vm_dem_food.l(i2,kfo))
+                           /(p62_dem_food_lh(i2)))
+                      *(1-s62_historical)) * sum(ct, f62_demand_modifier(ct,"%c62_textile_demand%"))
                       ;
 
 

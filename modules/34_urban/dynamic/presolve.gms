@@ -5,9 +5,9 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
+pc34_adjustment_cost(j) = (1/pcm_land(j,"urban"))$(pcm_land(j,"urban") >= 10e-4)
+						+ (10000)$(pcm_land(j,"urban") < 10e-4);
 
-vm_land.fx(j,"urban") = pcm_land(j,"urban");
-vm_carbon_stock.fx(j,"urban",c_pools) = 0;
 *' Biodiveristy value (BV)
 if(m_year(t) <= 2020,
         vm_bv.fx(j,"urban", potnatveg) = pcm_land(j,"urban") * fm_bii_coeff("urban","y2020","%c44_forestry_intensities%", potnatveg) * fm_luh2_side_layers(j,potnatveg);
@@ -24,4 +24,20 @@ if(m_year(t) <= 2020,
         Elseif(m_year(t) > 2045),
             vm_bv.fx(j,"urban", potnatveg) = pcm_land(j,"urban") * fm_bii_coeff("urban","y2050","%c44_forestry_intensities%", potnatveg) * fm_luh2_side_layers(j,potnatveg);
     );
-vm_bv.fx(j,"urban", potnatveg) = pcm_land(j,"urban") * fm_bii_coeff("urban",t,"%c44_forestry_intensities%",potnatveg) * fm_luh2_side_layers(j,potnatveg);
+    
+** Fade in densification switch
+if(m_year(t) <= 2020,
+        p34_densification = 1;
+        Elseif(m_year(t) = 2025),
+            p34_densification = (1 * 0.95 + s34_densification * 0.05);
+        Elseif(m_year(t) = 2030),
+            p34_densification = (1 * 0.85 + s34_densification * 0.15);
+        Elseif(m_year(t) = 2035),
+            p34_densification = (1 * 0.6 + s34_densification * 0.4);
+        Elseif(m_year(t) = 2040),
+            p34_densification = (1 * 0.4 + s34_densification * 0.6);
+        Elseif(m_year(t) = 2045),
+            p34_densification = (1 * 0.2 + s34_densification * 0.8);
+        Elseif(m_year(t) > 2045),
+            p34_densification = s34_densification;
+    );

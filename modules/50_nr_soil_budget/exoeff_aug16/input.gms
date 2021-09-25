@@ -8,7 +8,7 @@
 * Scenario for nr efficiency on croplands or pastures for selected (and
 * respectively non-selected) countries in cropneff_countries and pastneff_countries
 
-$setglobal c50_scen_neff  neff60_60_starty2010
+$setglobal c50_scen_neff  neff85_85_starty2010
 $setglobal c50_scen_neff_noselect  neff60_60_starty2010
 *   options: constant,
 *   neff55_55_starty1990,neff60_60_starty1990,neff65_70_starty1990,

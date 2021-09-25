@@ -31,9 +31,9 @@ v10_lu_transitions.up(j,"primforest","primforest") = Inf;
 *v10_lu_transitions.up(j,"secdforest","secdforest") = Inf;
 
 *' Urban land is fixed
-v10_lu_transitions.fx(j,land_from10,"urban") = 0;
-v10_lu_transitions.fx(j,"urban",land_to10) = 0;
-v10_lu_transitions.fx(j,"urban","urban") = pcm_land(j,"urban");
+*v10_lu_transitions.fx(j,land_from10,"urban") = 0;
+*v10_lu_transitions.fx(j,"urban",land_to10) = 0;
+*v10_lu_transitions.fx(j,"urban","urban") = pcm_land(j,"urban");
 
 *' @stop
 

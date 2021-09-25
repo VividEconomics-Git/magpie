@@ -7,11 +7,11 @@
 
 scalars
 
-s52_regen_ag     Turn regenerative ag BII coefficients for cropland and pastureland on      (1)      / 0 /
+s52_regen_ag     Turn regenerative ag BII coefficients for cropland and pastureland on      (1)      / 1 /
 *                                      1: on
 *                                      0: off
 
-$setglobal c52_carbon_scenario  nocc
+$setglobal c52_carbon_scenario  cc
 *   options:  cc        (climate change)
 *             nocc      (no climate change)
 *             nocc_hist (no climate change after year defined by sm_fix_cc)
