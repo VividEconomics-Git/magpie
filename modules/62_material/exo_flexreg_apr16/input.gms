@@ -5,8 +5,8 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-$setglobal c62_textile_demand  decrease
-* options default, decrease
+$setglobal c62_textile_demand  baseline
+* options default, decrease, baseline
 ;
 
 table f62_demand_modifier(t_all,scen_62_textile)  Textile demand modifier (1)

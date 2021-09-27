@@ -17,7 +17,7 @@ sets
 
 scen_62_textile   Textile demand future scenario
 /
-default, decrease
+default, decrease, baseline, CE
 /
 
 textiles(kall)    Textile products

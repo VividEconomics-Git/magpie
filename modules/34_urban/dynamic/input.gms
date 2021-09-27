@@ -7,5 +7,5 @@
 
 scalars
 s34_inc annual increase of urban land (factor) / 1.001 /
-s34_densification Relationship between population and urban area / 0.9 /
+s34_densification Relationship between population and urban area / 1 /
 ;
