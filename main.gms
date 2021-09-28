@@ -231,7 +231,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  textiles_baseline_nourban
+$setglobal c_title  textiles_baseline_nourban_switch
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
