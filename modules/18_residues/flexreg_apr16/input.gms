@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-$setglobal c18_burn_scen  phaseout
+$setglobal c18_burn_scen  constant
 *   options:    phaseout,constant
 
 table f18_multicropping(t_all,i) Multicropping indicator as ratio of area harvested by physical area (1)

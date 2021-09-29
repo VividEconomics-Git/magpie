@@ -17,7 +17,7 @@ s42_irrig_eff_scenario     Scenario for irrigation efficiency     (1)       / 2 
 s42_irrigation_efficiency              Value of irrigation efficiency       (1)        / 0.66 /
 *                                      Only if global static value is requested
 
-s42_irrigation_efficiency_pc_increase             Increase in irrigation efficiency every 5 years (applied equally to each region).         (1)      / 0.02 /
+s42_irrigation_efficiency_pc_increase             Increase in irrigation efficiency every 5 years (applied equally to each region).         (1)      / 0 /
 *                                      Only if region static values from CS selected
 
 s42_env_flow_scenario              EFP scenario.     (1)          / 2 /
@@ -102,7 +102,7 @@ $if "%c42_watdem_scenario%" == "nocc" f42_env_flows(t_all,j) = f42_env_flows("y1
 $if "%c42_watdem_scenario%" == "nocc_hist" f42_env_flows(t_all,j)$(m_year(t_all) > sm_fix_cc) = f42_env_flows(t_all,j)$(m_year(t_all) = sm_fix_cc);
 m_fillmissingyears(f42_env_flows,"j");
 
-$setglobal c42_env_flow_policy  on
+$setglobal c42_env_flow_policy  off
 
 table f42_env_flow_policy(t_all,scen42) EFP policies (1)
 $ondelim

@@ -7,7 +7,7 @@
 
 scalars
 
-s52_regen_ag     Turn regenerative ag BII coefficients for cropland and pastureland on      (1)      / 1 /
+s52_regen_ag     Turn regenerative ag BII coefficients for cropland and pastureland on      (1)      / 0 /
 *                                      1: on
 *                                      0: off
 

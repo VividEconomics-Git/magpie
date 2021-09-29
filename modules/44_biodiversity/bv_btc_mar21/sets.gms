@@ -17,7 +17,7 @@ sets
 		/ secd_mature, secd_int, secd_young /
 		
     bii_intensities bii coefficient intensity classes
-        / intense, minimal, off /
+        / intense, minimal, off, textiles_added /
 
 	ac_to_bii_class_secd(ac,bii_class_secd) Mapping between forest ageclasses and bii coefficent land cover classes 
 	/ (ac0,ac5,ac10)    . (secd_young)
