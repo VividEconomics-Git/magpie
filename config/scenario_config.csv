@@ -1,4 +1,4 @@
-;bau_2;ag_waste;ag_diets_2;ag_regen_ag_2;buildings_construction;buildings_consrecy;buildings_dense;forestry_demand;forestry_SFM;forestry_intensification;textiles_demand;textiles_regen
+;bau;ag_waste;ag_diets;ag_regen_ag;textiles_demand;textiles_regen;buildings_construction;buildings_consrecy;buildings_dense;forestry_demand;forestry_SFM;forestry_intensification
 gms$c09_pop_scenario;;;;;;;;;;;;
 gms$c09_gdp_scenario;;;;;;;;;;;;
 gms$c15_food_scenario;;;;;;;;;;;;
@@ -20,8 +20,8 @@ gms$s32_max_aff_area;;;;;;;;;;;;
 gms$s32_planing_horizon;;;;;;;;;;;;
 gms$c32_aff_mask;;;;;;;;;;;;
 gms$c32_aff_policy;;;;;;;;;;;;
-gms$urban;;;;;;;;;;;;
-gms$s34_densification;;;;;;;0.5;0.5;0.5;0.5;0.5;0.5
+gms$urban;;;;;;;;;dynamic;dynamic;dynamic;dynamic
+gms$s34_densification;;;;;;;;;0.787427535;0.787427535;0.787427535;0.787427535
 gms$c35_ad_policy;;;;;;;;;;;;
 gms$c35_aolc_policy;;;;;;;;;;;;
 gms$c35_protect_scenario;;;;;;;;;;;;
@@ -31,7 +31,7 @@ gms$s42_watdem_nonagr_scenario;;;;;;;;;;;;
 gms$s42_irrig_eff_scenario;;;;2;2;2;2;2;2;2;2;2
 gms$s42_irrigation_efficiency_pc_increase;;;;0.02;0.02;0.02;0.02;0.02;0.02;0.02;0.02;0.02
 gms$c42_env_flow_policy;;;;on;on;on;on;on;on;on;on;on
-gms$c44_forestry_intensities;off;off;off;intense;intense;intense;intense;intense;minimal;minimal;minimal;textiles_added
+gms$c44_forestry_intensities;off;off;off;intense;intense;textiles_added;textiles_added;textiles_added;textiles_added;textiles_added;minimal;minimal
 gms$c50_scen_neff;;;;neff85_85_starty2010;neff85_85_starty2010;neff85_85_starty2010;neff85_85_starty2010;neff85_85_starty2010;neff85_85_starty2010;neff85_85_starty2010;neff85_85_starty2010;neff85_85_starty2010
 gms$c50_scen_neff_noselect;;;;;;;;;;;;
 gms$s52_regen_ag;0;0;0;1;1;1;1;1;1;1;1;1
@@ -48,12 +48,12 @@ gms$c60_1stgen_biodem;const2030;const2030;const2030;const2030;const2030;const203
 gms$c60_biodem_level;;;;;;;;;;;;
 gms$c60_bioenergy_subsidy;;;;;;;;;;;;
 gms$c60_res_2ndgenBE_dem;;;;;;;;;;;;
-gms$c62_textile_demand ;baseline;baseline;baseline;baseline;baseline;baseline;baseline;baseline;baseline;baseline;CE;CE
+gms$c62_textile_demand ;baseline;baseline;baseline;baseline;CE;CE;CE;CE;CE;CE;CE;CE
 gms$c70_feed_scen;;;;;;;;;;;;
 gms$c70_cereal_scp_scen;;;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50
 gms$c70_foddr_scp_scen;;;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50;sigmoid_80pc_20_50
-gms$c73_wood_scen;;;;;construction;consrecy;consrecy;pulpfurn;pulpfurn;pulpfurn;pulpfurn;pulpfurn
-gms$c73_woodfuel_scen;;;;;default;consrecy;consrecy;decrease;decrease;decrease;decrease;decrease
+gms$c73_wood_scen;;;;;;;construction;consrecy;consrecy;pulpfurn;pulpfurn;pulpfurn
+gms$c73_woodfuel_scen;;;;;;;default;consrecy;consrecy;decrease;decrease;decrease
 gms$c_timesteps;;;;;;;;;;;;
 gms$c14_yields_scenario;cc;cc;cc;cc;cc;cc;cc;cc;cc;cc;cc;cc
 gms$c42_watdem_scenario;cc;cc;cc;cc;cc;cc;cc;cc;cc;cc;cc;cc
@@ -69,6 +69,6 @@ gms$peatland;;;;;;;;;;;;
 gms$s56_peatland_policy;;;;;;;;;;;;
 gms$s58_rewetting_switch;;;;;;;;;;;;
 gms$s73_timber_demand_switch;1;1;1;1;1;1;1;1;1;1;1;1
-gms$c32_dev_scen;;;;;;;;;;brown;brown;brown
-gms$c32_rot_calc_type;;;;;;;;;;instantaneous_growth_rate;instantaneous_growth_rate;instantaneous_growth_rate
-gms$s34_dynamic;;;;;;;;;;;;
+gms$c32_dev_scen;;;;;;;;;;;;brown
+gms$c32_rot_calc_type;;;;;;;;;;;;instantaneous_growth_rate
+gms$s34_dynamic;;;;;;;;;1;1;1;1

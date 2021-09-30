@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-$setglobal c62_textile_demand  baseline
+$setglobal c62_textile_demand  CE
 * options default, decrease, baseline
 ;
 
