@@ -17,13 +17,13 @@ $setglobal c32_tcre_ctrl  ann_TCREmean
 * options: ann_TCREmean, ann_TCREhigh, ann_TCRElow
 $setglobal c32_interest_rate  regional
 * options regional, global
-$setglobal c32_dev_scen  abare
+$setglobal c32_dev_scen  brown
 * options abare, brown
 $setglobal c32_incr_rate  h5s2l1
 * options constant,h5s5l5,h5s2l2,h5s2l1,h5s1l1,h5s1l05,h2s1l05
-$setglobal c32_rot_calc_type  current_annual_increment
+$setglobal c32_rot_calc_type  instantaneous_growth_rate
 * option  max_increment, max_npv
-$setglobal c32_rot_calc_type  current_annual_increment
+$setglobal c32_rot_calc_type  instantaneous_growth_rate
 * options mean_annual_increment, current_annual_increment, instantaneous_growth_rate
 
 scalars

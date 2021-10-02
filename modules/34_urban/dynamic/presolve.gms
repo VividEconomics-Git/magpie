@@ -29,15 +29,16 @@ if(m_year(t) <= 2020,
 if(m_year(t) <= 2020,
         p34_densification = 1;
         Elseif(m_year(t) = 2025),
-            p34_densification = (1 * 0.95 + s34_densification * 0.05);
+            p34_densification = 0.99;
         Elseif(m_year(t) = 2030),
-            p34_densification = (1 * 0.85 + s34_densification * 0.15);
+            p34_densification = 0.97979798;
         Elseif(m_year(t) = 2035),
-            p34_densification = (1 * 0.6 + s34_densification * 0.4);
+            p34_densification = 0.969072165;
         Elseif(m_year(t) = 2040),
-            p34_densification = (1 * 0.4 + s34_densification * 0.6);
+            p34_densification = 0.946808511;
         Elseif(m_year(t) = 2045),
-            p34_densification = (1 * 0.2 + s34_densification * 0.8);
+            p34_densification = 0.943820225;
         Elseif(m_year(t) > 2045),
-            p34_densification = s34_densification;
+            p34_densification = 0.937413733
+;
     );

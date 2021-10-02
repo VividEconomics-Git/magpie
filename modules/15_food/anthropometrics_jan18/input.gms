@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 scalars
-s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 0 /
+s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 1 /
 *                                      1 or 0
 
 $setglobal c15_food_scenario  SSP2

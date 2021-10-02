@@ -12,4 +12,4 @@ q34_cost(i2)..
 
 q34_urban(i2)..
  sum(cell(i2,j2), vm_land(j2,"urban")) =e= 
- sum(cell(i2,j2), pcm_land(j2,"urban")) * sum(ct, p34_pop_growth(ct,i2)) * p34_densification;
+ sum(cell(i2,j2), pcm_land(j2,"urban")) * p34_densification;
