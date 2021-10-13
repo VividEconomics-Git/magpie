@@ -205,7 +205,7 @@ $title magpie
 * 
 * 
 * 
-* Last modification (input data): Wed Sep 01 22:27:51 2021
+* Last modification (input data): Wed Oct 13 11:02:34 2021
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -231,7 +231,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  default
+$setglobal c_title  cc
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
