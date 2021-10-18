@@ -231,7 +231,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  forestry_intensification_update_2
+$setglobal c_title  textiles_regen_6
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -263,7 +263,7 @@ $setglobal past  endo_jun13
 
 $setglobal forestry  dynamic_feb21
 
-$setglobal urban  dynamic
+$setglobal urban  static
 $setglobal natveg  dynamic_feb21
 
 $setglobal factor_costs  mixed_feb17

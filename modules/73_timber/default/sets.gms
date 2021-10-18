@@ -42,7 +42,7 @@ woodfuel . (wood_fuel)
 
 scen_73 Forestry future scenario
 /
-nopaper, construction, pulpfurn, consrecy
+nopaper, construction, pulpfurn, consrecy, default
 /
 
 scen_73_woodfuel Woodfuel future scenario

@@ -13,7 +13,7 @@ s44_regen_ag     Turn regenerative ag BII coefficients for cropland and pasturel
 
 $setglobal c44_price_bv_loss  p0
 
-$setglobal c44_forestry_intensities  minimal
+$setglobal c44_forestry_intensities  textiles_added
 *   options:   off, minimal, intense
 
 

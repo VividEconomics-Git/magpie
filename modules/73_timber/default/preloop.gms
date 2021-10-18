@@ -40,9 +40,7 @@ if(s73_timber_demand_switch=1,
 );
 display p73_timber_demand_gdp_pop;
 ** Alternative wood use scenarios
-$ifthen "%c73_wood_scen%" == "construction"
 p73_timber_demand_gdp_pop(t_all,i,"wood") = p73_timber_demand_gdp_pop(t_all,i,"wood") * f73_demand_modifier(t_all,"%c73_wood_scen%");
-$endif
 
 ** Alternative woodfuel scenarios
 p73_timber_demand_gdp_pop(t_all,i,"woodfuel") = p73_timber_demand_gdp_pop(t_all,i,"woodfuel") * f73_demand_modifier_woodfuel(t_all,"%c73_woodfuel_scen%");
