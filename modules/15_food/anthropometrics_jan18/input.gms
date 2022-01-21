@@ -5,6 +5,9 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
+scalars
+s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 1 /
+*                                      1 or 0
 
 $setglobal c15_food_scenario  SSP2
 $setglobal c15_food_scenario_noselect  SSP2
@@ -33,10 +36,10 @@ $setglobal c15_livescen_target  constant
 
 
 $setglobal c15_exo_scen_targetyear  y2020
-*   options:   y2030, y2050
+*   options:   y2025, y2030, y2050
 
 $setglobal c15_kcal_scen  exogenous
-*   options:   healthy_BMI, 2100kcal, 2500kcal
+*   options:   healthy_BMI, 2100kcal, 2500kcal, bau
 
 $setglobal c15_EAT_scen  high_ds
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
