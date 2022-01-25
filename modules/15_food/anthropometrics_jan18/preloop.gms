@@ -86,6 +86,7 @@ p15_foodscen_region_shr(t_all,i) = sum(i_to_iso(i,iso), p15_country_dummy(iso) *
 * of fading from regression based daily food consumption towards the scenario.
 * Note: p15_foodscen_region_shr(t,i) is 1 in the default case)
 i15_exo_foodscen_fader(t,i) = f15_exo_foodscen_fader(t,"%c15_exo_scen_targetyear%") * p15_foodscen_region_shr(t,i);
+i15_exo_wastescen_fader(t,i) = f15_exo_wastescen_fader(t,"%c15_exo_wastescen_targetyear%") * p15_foodscen_region_shr(t,i);
 
 
 

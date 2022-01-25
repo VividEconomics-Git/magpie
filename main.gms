@@ -216,7 +216,7 @@ $offlisting
 
 $setglobal c_timesteps  quicktest
 $setglobal c_past  till_2010
-$setglobal c_title  high_ds
+$setglobal c_title  waste_0
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /

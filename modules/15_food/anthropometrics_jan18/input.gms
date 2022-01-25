@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 scalars
-s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 1 /
+s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 0 /
 *                                      1 or 0
 
 $setglobal c15_food_scenario  SSP2
@@ -35,13 +35,16 @@ $setglobal c15_rumdairy_scp_scen  constant
 $setglobal c15_livescen_target  constant
 
 
-$setglobal c15_exo_scen_targetyear  y2020
+$setglobal c15_exo_scen_targetyear  y2050
 *   options:   y2025, y2030, y2050
 
-$setglobal c15_kcal_scen  exogenous
+$setglobal c15_exo_wastescen_targetyear  y2050
+*   options:   y2025, y2030, y2050
+
+$setglobal c15_kcal_scen  healthy_BMI
 *   options:   healthy_BMI, 2100kcal, 2500kcal, bau
 
-$setglobal c15_EAT_scen  high_ds
+$setglobal c15_EAT_scen  FLX
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 
@@ -93,7 +96,7 @@ scalar s15_exo_waste Switch for transition towards exogenous food waste scenario
 
 scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.2 /;
 
-scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 1 /;
+scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 0 /;
 
 scalar s15_alc_scen Scenario target for the inclusion of alcohol in the EAT-Lancet diet (1)  / 0.014 /;
 
@@ -246,6 +249,15 @@ $offdelim
 table f15_exo_foodscen_fader(t_all,t_scen15) Fader that converges per capita food consumption to an exogenous diet scenario until the target year (1)
 $ondelim
 $include "./modules/15_food/input/f15_exo_foodscen_fader.csv"
+$offdelim
+;
+
+
+*** Exogenous food waste scenario
+
+table f15_exo_wastescen_fader(t_all,t_scen15) Fader that converges per capita food consumption to an exogenous diet scenario until the target year (1)
+$ondelim
+$include "./modules/15_food/input/f15_exo_wastescen_fader.csv"
 $offdelim
 ;
 
