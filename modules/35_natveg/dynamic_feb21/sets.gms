@@ -10,10 +10,10 @@ sets
   / none, npi, ndc /
 
   prot_type_all Conservation priority areas
-  / BH, CPD, FF, LW, WDPA, HalfEarth, FF_BH, Forest, Forest_Other, PrimForest, SecdForest /
+  / BH, CPD, FF, LW, WDPA, HalfEarth, FF_BH, Forest, Forest_Other, PrimForest, SecdForest, Jung30, Jung40, Jung50 /
 
   prot_type(prot_type_all) Conservation priority areas
-  / BH, CPD, FF, LW, WDPA, HalfEarth /
+  / BH, CPD, FF, LW, WDPA, HalfEarth, Jung30, Jung40, Jung50 /
 
   pol_stock35 Land types for land protection policies
   / forest, other /
@@ -26,6 +26,6 @@ sets
   / shifting_agriculture,wildfire /
 
   prot_target35 Target year for nature protection
-   / none, by2030, by2050 /
+   / none, by2030, by2050, 20by30_40by50, 30by30_40by50, 30by30_50by50 /
 
 ;
