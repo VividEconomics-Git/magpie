@@ -166,6 +166,10 @@ $title magpie
 * md5sum: NA
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
+* Used data set: patch_NatuRisk.tgz
+* md5sum: 6e4c2afbe1253e2084226b43029a5fd0
+* Repository: ./patch_inputdata
+* 
 * Low resolution: c200
 * High resolution: 0.5
 * 
@@ -190,7 +194,7 @@ $title magpie
 * * Call: do.call(functiononly, args)
 * 
 * 
-* Last modification (input data): Tue Jan 11 18:58:32 2022
+* Last modification (input data): Thu Feb 03 10:57:45 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -214,9 +218,9 @@ $offlisting
 **************************MODEL SPECIFIC SCALARS********************************
 *                    Key parameters during model runs
 
-$setglobal c_timesteps  quicktest
+$setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  waste_0
+$setglobal c_title  irrig_static
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
