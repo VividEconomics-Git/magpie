@@ -220,7 +220,7 @@ $offlisting
 
 $setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  irrig_static
+$setglobal c_title  cct_50_1C
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
