@@ -257,7 +257,7 @@ $offdelim
 
 table f15_exo_wastescen_fader(t_all,t_scen15) Fader that converges per capita food consumption to an exogenous diet scenario until the target year (1)
 $ondelim
-$include "./modules/15_food/input/f15_exo_wastescen_fader.csv"
+$include "./modules/15_food/input/f15_exo_foodscen_fader.csv"
 $offdelim
 ;
 
