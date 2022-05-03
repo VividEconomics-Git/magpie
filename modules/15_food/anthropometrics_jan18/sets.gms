@@ -161,7 +161,7 @@ sets
        / 2100kcal, 2500kcal, exogenous /
 
   EAT_scen15  Scenario of daily per capita calorie intake
-       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, bau, low_ds, med_ds, high_ds /
+       / 2C, 50_1C_tech, bau /
 
    EAT_staples(kfo) All staple food products according to EAT Lancet definition
        / tece,maiz,trce,rice_pro,potato,cassav_sp /
