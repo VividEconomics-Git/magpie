@@ -45,6 +45,7 @@ p35_protect_shr(t,j,"LW",land_natveg) = p35_protect_shr_ini(j,"WDPA") * (1-f35_p
 p35_protect_shr(t,j,"Jung30",land_natveg) = p35_protect_shr_ini(j,"WDPA") * (1-f35_protection_fader(t,"%c35_protect_fadein%")) + (p35_protect_shr_ini(j,"WDPA") + p35_protect_shr_ini(j,"Jung30"))*f35_protection_fader(t,"%c35_protect_fadein%");
 p35_protect_shr(t,j,"Jung40",land_natveg) = p35_protect_shr_ini(j,"WDPA") * (1-f35_protection_fader(t,"%c35_protect_fadein%")) + (p35_protect_shr_ini(j,"WDPA") + p35_protect_shr_ini(j,"Jung40"))*f35_protection_fader(t,"%c35_protect_fadein%");
 p35_protect_shr(t,j,"Jung50",land_natveg) = p35_protect_shr_ini(j,"WDPA") * (1-f35_protection_fader(t,"%c35_protect_fadein%")) + (p35_protect_shr_ini(j,"WDPA") + p35_protect_shr_ini(j,"Jung50"))*f35_protection_fader(t,"%c35_protect_fadein%");
+p35_protect_shr(t,j,"Jung20",land_natveg) = p35_protect_shr_ini(j,"WDPA") * (1-f35_protection_fader(t,"%c35_protect_fadein%")) + (p35_protect_shr_ini(j,"WDPA") + p35_protect_shr_ini(j,"Jung20"))*f35_protection_fader(t,"%c35_protect_fadein%");
 
 p35_protect_shr(t,j,"FF_BH","primforest") = p35_protect_shr_ini(j,"WDPA") * (1-f35_protection_fader(t,"%c35_protect_fadein%")) + 1*f35_protection_fader(t,"%c35_protect_fadein%");
 p35_protect_shr(t,j,"FF_BH","secdforest") = p35_protect_shr_ini(j,"WDPA") * (1-f35_protection_fader(t,"%c35_protect_fadein%")) + (p35_protect_shr_ini(j,"WDPA") + max(p35_protect_shr_ini(j,"FF"),p35_protect_shr_ini(j,"BH")))*f35_protection_fader(t,"%c35_protect_fadein%");
