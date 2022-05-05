@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-$setglobal c44_price_bv_loss  p0
+$setglobal c44_price_bv_loss  climate_nature_now
 
 
 table fm_bii_coeff(bii_class44,potnatveg) bii coeff (unitless)

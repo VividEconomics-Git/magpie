@@ -167,7 +167,7 @@ $title magpie
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
 * Used data set: patch_NatuRisk.tgz
-* md5sum: 6e4c2afbe1253e2084226b43029a5fd0
+* md5sum: 4dc9009dce820dac705ab15cadd64378
 * Repository: ./patch_inputdata
 * 
 * Low resolution: c200
@@ -193,8 +193,11 @@ $title magpie
 * * Regionscode: 62eff8f7
 * * Call: do.call(functiononly, args)
 * 
+* Warning message:
+* In file(file, ifelse(append, "a", "w")) :
+*   cannot open file 'C:/Users/Charlie Briggs/OneDrive - McKinsey & Company/Documents/NR/Naturisk/food_waste_CO.csv': Permission denied
 * 
-* Last modification (input data): Thu Feb 03 10:57:45 2022
+* Last modification (input data): Tue May 03 17:50:40 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -220,7 +223,7 @@ $offlisting
 
 $setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  cct_50_1C
+$setglobal c_title  s4_climate_nature_now
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /

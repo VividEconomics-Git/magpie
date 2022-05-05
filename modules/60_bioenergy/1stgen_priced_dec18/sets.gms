@@ -68,7 +68,8 @@ sets
       DT,
       DivNZ,
       CP,
-      NDC /
+      NDC,
+      NGFS_NDC /
 
 ;
 *######################### R SECTION END (SETS) ################################

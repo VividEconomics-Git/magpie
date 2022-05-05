@@ -9,7 +9,7 @@ scalars
 
 s42_reserved_fraction  Fraction of available water that is reserved for industry electricity and domestic use (1) / 0.5 /
 
-s42_irrig_eff_scenario     Scenario for irrigation efficiency     (1)       / 2 /
+s42_irrig_eff_scenario     Scenario for irrigation efficiency     (1)       / 3 /
 *                                      1: global static value
 *                                      2: regional static values from CS
 *                                      3: gdp driven increase
@@ -99,7 +99,7 @@ $if "%c42_watdem_scenario%" == "nocc" f42_env_flows(t_all,j) = f42_env_flows("y1
 $if "%c42_watdem_scenario%" == "nocc_hist" f42_env_flows(t_all,j)$(m_year(t_all) > sm_fix_cc) = f42_env_flows(t_all,j)$(m_year(t_all) = sm_fix_cc);
 m_fillmissingyears(f42_env_flows,"j");
 
-$setglobal c42_env_flow_policy  off
+$setglobal c42_env_flow_policy  on
 
 table f42_env_flow_policy(t_all,scen42) EFP policies (1)
 $ondelim

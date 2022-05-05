@@ -8,7 +8,7 @@ $setglobal c32_timber_plantations  plantations
 * option: natveg, plantations
 $setglobal c32_aff_mask  noboreal
 * options: unrestricted, noboreal, onlytropical
-$setglobal c32_aff_policy  npi
+$setglobal c32_aff_policy  ndc
 * options: none, npi, ndc
 $setglobal c32_max_aff_area  global
 * options: global, regional
@@ -28,7 +28,7 @@ $setglobal c32_rot_calc_type  current_annual_increment
 * options mean_annual_increment, current_annual_increment, instantaneous_growth_rate
 
 scalars
-  s32_hvarea                      Flag for harvested area and establishemt (0=zero 1=exognous 2=endogneous)	/ 0 /
+  s32_hvarea                      Flag for harvested area and establishemt (0=zero 1=exognous 2=endogneous)	/ 2 /
   s32_reESTBcost                  Re establishment cost (USD per ha) / 2000 /
   s32_recurring_cost              Recurring costs (USD per ha) / 500 /
   s32_harvesting_cost             Harvesting cost (USD per ha) / 1000 /
