@@ -20,4 +20,8 @@ neff75_85_starty2010,neff85_85_starty2010 /
 dep_scen50 Scenario for atmospheric deposition
 /history/
 
+*** MB: APR 28, 2022. Adding a set of fertilizer price scenario trajectories
+fert_scen50 Scenario for fertilizer price trajectory
+/ f0, f10, f20, f30, f40, f50, f60, f70, f80, f90, f100, f110, f120, f130, f140, f150, f160, f170, f180, f190, f200 /
+
 ;

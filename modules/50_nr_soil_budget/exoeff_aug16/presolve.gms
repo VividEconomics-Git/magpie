@@ -32,3 +32,11 @@ else
 );
 
 i50_atmospheric_deposition_rates(t,j,land)=f50_atmospheric_deposition_rates(t,j,land,"%c50_dep_scen%");
+
+*** MB: APR 28, 2022. Adding a conditional "if" statement to apply a scenario fertilizer price trajectory post-2020.
+if(m_year(t) <= sm_fix_SSP2,
+ s50_fertilizer_costs = f50_fertilizer_costs(t,"f100");
+else
+ s50_fertilizer_costs = f50_fertilizer_costs(t,"%c50_fert_scen%");
+);
+*** MB: APR 28, 2022. End of the m_year(t) conditional.
