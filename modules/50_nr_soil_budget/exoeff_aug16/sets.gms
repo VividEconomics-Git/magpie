@@ -21,6 +21,11 @@ dep_scen50 Scenario for atmospheric deposition
 /history/
 
 *** MB: APR 28, 2022. Adding a set of fertilizer price scenario trajectories
+*** MB: APR 28, 2022. The logic here is that "f" stands for fertilizer and the number suffix designates the 2050 fertilizer price
+***                   as a percentage of the MAgPIE default $600/t value, e.g. f110 = 110% of $600. The 2050 prices are interpolated
+***                   and applied linearly starting in 2025.
+*** MB: MAY 10, 2022. An improvement of the code could be to let the user freely choose any price, 2050 or otherwise. Let's re-visit
+***                   when we've done further work on the organic N fertilizer options and applying a price for those.
 fert_scen50 Scenario for fertilizer price trajectory
 / f0, f10, f20, f30, f40, f50, f60, f70, f80, f90, f100, f110, f120, f130, f140, f150, f160, f170, f180, f190, f200 /
 

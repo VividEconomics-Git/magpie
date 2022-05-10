@@ -34,6 +34,7 @@ else
 i50_atmospheric_deposition_rates(t,j,land)=f50_atmospheric_deposition_rates(t,j,land,"%c50_dep_scen%");
 
 *** MB: APR 28, 2022. Adding a conditional "if" statement to apply a scenario fertilizer price trajectory post-2020.
+*** MB: MAY 10, 2022. Note that the year until which default values apply is controled by the "sm_fix_SSP2" option. This seems to be consistent across other scenario switches.
 if(m_year(t) <= sm_fix_SSP2,
  s50_fertilizer_costs = f50_fertilizer_costs(t,"f100");
 else
