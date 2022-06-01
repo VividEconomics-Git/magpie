@@ -76,7 +76,9 @@ sets
       SSPDB-SSP5-34-REMIND-MAGPIE,
       SSPDB-SSP5-45-REMIND-MAGPIE,
       SSPDB-SSP5-60-REMIND-MAGPIE,
-      SSPDB-SSP5-Ref-REMIND-MAGPIE /
+      SSPDB-SSP5-Ref-REMIND-MAGPIE,
+      fps_developed,
+      fps_developing /
 
   scen56 emission policy scenarios
     / none,
