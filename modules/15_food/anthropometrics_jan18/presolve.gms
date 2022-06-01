@@ -566,12 +566,60 @@ $ifthen "%c15_kcal_scen%" == "healthy_BMI"
          ) / sum(i_to_iso(i,iso),
              sum((sex,age), im_demography(t,iso,sex,age))
          );
-  i15_intake_EATLancet(i,kfo) =
-        f15_intake_EATLancet("%c15_exo_scen_targetyear%",i,"2100kcal","%c15_EAT_scen%",kfo);
+         
+    if((s15_all_exo_years = 1) and (m_year(t) = 2025),
+        i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2025",i,"2100kcal","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2030)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2030",i,"2100kcal","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2035)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2035",i,"2100kcal","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2040)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2040",i,"2100kcal","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2045)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2045",i,"2100kcal","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2050)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2050",i,"2100kcal","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) > 2050)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2050",i,"2100kcal","%c15_EAT_scen%",kfo);    
+    else
+        i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("%c15_exo_scen_targetyear%",i,"2100kcal","%c15_EAT_scen%",kfo);
+    );
 $else
-  i15_intake_EATLancet(i,kfo) =
-      f15_intake_EATLancet("%c15_exo_scen_targetyear%",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
-      i15_intake_scen_target(t,i) = sum(kfo,i15_intake_EATLancet(i,kfo));
+if((s15_all_exo_years = 1) and (m_year(t) = 2025),
+        i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2025",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2030)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2030",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2035)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2035",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2040)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2040",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2045)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2045",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) = 2050)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2050",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    Elseif((s15_all_exo_years = 1) and (m_year(t) > 2050)),
+            i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("y2050",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    else
+        i15_intake_EATLancet(i,kfo) =
+                f15_intake_EATLancet("%c15_exo_scen_targetyear%",i,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+    );
+  
+i15_intake_scen_target(t,i) = sum(kfo,i15_intake_EATLancet(i,kfo));
 $endif
 
 

@@ -5,6 +5,9 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
+scalars
+s15_all_exo_years             Use both years (2030 and 2050) of exo diets file or not        (1)      / 1 /
+*                                      1 or 0
 
 $setglobal c15_food_scenario  SSP2
 $setglobal c15_food_scenario_noselect  SSP2
@@ -32,13 +35,13 @@ $setglobal c15_rumdairy_scp_scen  constant
 $setglobal c15_livescen_target  constant
 
 
-$setglobal c15_exo_scen_targetyear  y2050
+$setglobal c15_exo_scen_targetyear  y2020
 *   options:   y2030, y2050
 
-$setglobal c15_kcal_scen  healthy_BMI
+$setglobal c15_kcal_scen  endogenous
 *   options:   healthy_BMI, 2100kcal, 2500kcal
 
-$setglobal c15_EAT_scen  FLX
+$setglobal c15_EAT_scen  bau
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 
@@ -73,7 +76,7 @@ sets
 ;
 
 $onMultiR
-set    kfo_rd(kfo) Ruminant meat and dairy food products / livst_rum,livst_milk /;
+set    kfo_rd(kfo) Ruminant meat and dairy food products / livst_rum /;
 $offMulti
 
 scalar s15_elastic_demand  Elastic demand switch (1=elastic 0=exogenous) (1) / 0 /;
@@ -90,7 +93,7 @@ scalar s15_exo_waste Switch for transition towards exogenous food waste scenario
 
 scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.2 /;
 
-scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 0 /;
+scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 1 /;
 
 scalar s15_alc_scen Scenario target for the inclusion of alcohol in the EAT-Lancet diet (1)  / 0.014 /;
 
