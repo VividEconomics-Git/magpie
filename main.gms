@@ -146,25 +146,29 @@ $title magpie
 
 *##################### R SECTION START (VERSION INFO) ##########################
 * 
-* Used data set: rev4.67_h12_magpie.tgz
+* Used data set: rev4.67_694a3a5b_magpie.tgz
+* md5sum: d65cd1773ca51a1ea4c3618b15e119bb
+* Repository: ./patch_inputdata
+* 
+* Used data set: rev4.67_694a3a5b_fd712c0b_cellularmagpie_c200_MRI-ESM2-0-ssp370_lpjml-8e6c5eb1.tgz
+* md5sum: e6b1c3af4dda1497c1985a680b7cbbe1
+* Repository: ./patch_inputdata
+* 
+* Used data set: rev4.67_694a3a5b_validation.tgz 
+* md5sum: b9ca46bbd62c1997e8683a364e7ec68b
+* Repository: ./patch_inputdata
+* 
+* Used data set: calibration_IPR2022.tgz
+* md5sum: 7d31b353923fb09815f7ad58c8b9148c
+* Repository: ./patch_inputdata
+* 
+* Used data set: additional_data_rev4.08.tgz
 * md5sum: NA
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
-* Used data set: rev4.67_h12_1998ea10_cellularmagpie_c200_MRI-ESM2-0-ssp370_lpjml-8e6c5eb1.tgz
-* md5sum: NA
-* Repository: https://rse.pik-potsdam.de/data/magpie/public
-* 
-* Used data set: rev4.67_h12_validation.tgz
-* md5sum: NA
-* Repository: https://rse.pik-potsdam.de/data/magpie/public
-* 
-* Used data set: additional_data_rev4.07.tgz
-* md5sum: accf653e73cbfd02354158d3b99b046f
-* Repository: https://rse.pik-potsdam.de/data/magpie/public
-* 
-* Used data set: calibration_H12_sticky_feb18_free_30Nov21.tgz
-* md5sum: f9ee7b8955713d8bd860cb65374d1958
-* Repository: https://rse.pik-potsdam.de/data/magpie/public
+* Used data set: patch_F4B2022_220711.tgz
+* md5sum: ef9c29c7f288606ddfc7a6af3e21245a
+* Repository: ./patch_inputdata
 * 
 * Low resolution: c200
 * High resolution: 0.5
@@ -172,10 +176,10 @@ $title magpie
 * Total number of cells: 200
 * 
 * Number of cells per region:
-*   CAZ  CHA  EUR  IND  JPN  LAM  MEA  NEU  OAS  REF  SSA  USA
-*     6   23    7    6    1   43   27    7   11   12   37   20
+*   ANZ  BRA  CAN  CHA  DEA  EUR  IND  MEA  NEU  REF  RUS  SAF  SAS  SCO  SEA  TAF  TLA  USA
+*     3    9    4   22    1    7    6   26    7   10    5   11    7    8    5   25   26   18
 * 
-* Regionscode: 62eff8f7
+* Regionscode: 694a3a5b
 * 
 * Regions data revision: 4.67
 * 
@@ -186,11 +190,11 @@ $title magpie
 * aggregation settings:
 * * Input resolution: 0.5
 * * Output resolution: c200
-* * Regionscode: 62eff8f7
-* * Call: do.call(functiononly, args)
+* * Regionscode: 694a3a5b
+* * Call: force(code)
 * 
 * 
-* Last modification (input data): Fri Jan 21 11:08:10 2022
+* Last modification (input data): Mon Jul 11 23:28:04 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -214,9 +218,9 @@ $offlisting
 **************************MODEL SPECIFIC SCALARS********************************
 *                    Key parameters during model runs
 
-$setglobal c_timesteps  2
+$setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  default
+$setglobal c_title  policy4_1000
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /

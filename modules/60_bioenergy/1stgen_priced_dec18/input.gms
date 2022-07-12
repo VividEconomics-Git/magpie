@@ -39,7 +39,7 @@ scalars
   s60_2ndgen_bioenergy_dem_min Minimum dedicated 2nd generation bioenergy demand assumed in each region (mio. GJ per yr) / 1 /
 ;
 
-$setglobal c60_2ndgen_biodem  R21M42-SSP2-NPi
+$setglobal c60_2ndgen_biodem  R2M41-SSP2-NDC
 $setglobal c60_2ndgen_biodem_noselect  R21M42-SSP2-NPi
 
 
