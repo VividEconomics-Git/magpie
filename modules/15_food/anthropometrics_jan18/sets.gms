@@ -158,10 +158,10 @@ sets
        / y2010, y2015, y2020, y2025, y2030, y2035, y2040, y2045, y2050 /
 
   kcal_scen15  Scenario of daily per capita calorie intake
-       / 2100kcal, 2500kcal, endogenous /
+       / 2100kcal, 2500kcal, endogenous, bau /
 
   EAT_scen15  Scenario of daily per capita calorie intake
-       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, bau, bau_alt_prot, 2C, 1C_pol, 1C_tech /
+       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, bau, bau_alt_prot, 2C, 1C_pol, 1C_tech, rps_higher_rm /
 
    EAT_staples(kfo) All staple food products according to EAT Lancet definition
        / tece,maiz,trce,rice_pro,potato,cassav_sp /

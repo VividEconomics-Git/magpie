@@ -38,10 +38,10 @@ $setglobal c15_livescen_target  constant
 $setglobal c15_exo_scen_targetyear  y2020
 *   options:   y2030, y2050
 
-$setglobal c15_kcal_scen  endogenous
+$setglobal c15_kcal_scen  bau
 *   options:   healthy_BMI, 2100kcal, 2500kcal
 
-$setglobal c15_EAT_scen  bau
+$setglobal c15_EAT_scen  rps_higher_rm
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 
