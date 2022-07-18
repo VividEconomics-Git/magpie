@@ -145,24 +145,26 @@ $title magpie
 *'  * Always try to access model outputs through the corresponding magpie package instead of accessing them directly with readGDX. It cannot be guaranteed that your script will work in the future if you do otherwise (as only the corresponding magpie package will be continuously adapted to changes in the GAMS code).
 
 *##################### R SECTION START (VERSION INFO) ##########################
+* 
+* Used data set: rev4.73_h12_magpie.tgz
 * md5sum: NA
-* Repository: scp://cluster.pik-potsdam.de/p/projects/rd3mod/inputdata/output
+* Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
 * Used data set: rev4.73_h12_fd712c0b_cellularmagpie_c200_MRI-ESM2-0-ssp370_lpjml-8e6c5eb1.tgz
 * md5sum: NA
-* Repository: scp://cluster.pik-potsdam.de/p/projects/rd3mod/inputdata/output
+* Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
 * Used data set: rev4.73_h12_validation.tgz
 * md5sum: NA
-* Repository: scp://cluster.pik-potsdam.de/p/projects/rd3mod/inputdata/output
+* Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
 * Used data set: additional_data_rev4.26.tgz
 * md5sum: NA
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
 * Used data set: calibration_H12_per_ton_fao_may22_28May22.tgz
-* md5sum: f6bf26be99c5dbd29e13a38af38c0d31
-* Repository: /p/projects/rd3mod/mirror/rse.pik-potsdam.de/data/magpie/public
+* md5sum: NA
+* Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
 * Low resolution: c200
 * High resolution: 0.5
@@ -187,10 +189,13 @@ $title magpie
 * * Regionscode: 62eff8f7
 * * Call: withCallingHandlers(expr, message = messageHandler, warning = warningHandler,     error = errorHandler)
 * 
-* Warning message:
-* package 'lucode2' was built under R version 4.2.1
+* Warning messages:
+* 1: In load("input/spatial_header.rda") :
+*   strings not representable in native encoding will be translated to UTF-8
+* 2: food.anthropometrics_jan18: "sets" does not follow the given naming conventions (description = "")!
+* 3: food.anthropometrics_jan18: "scen_countries15" does not follow the given naming conventions (description = "countries to be affected by selected food sceanrio ")!
 * 
-* Last modification (input data): Tue Jul  5 14:20:37 2022
+* Last modification (input data): Fri Jul 15 15:31:32 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -216,7 +221,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  default
+$setglobal c_title  rot_agroecology
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -244,7 +249,7 @@ $setglobal land_conservation  area_based_apr22
 
 $setglobal ageclass  feb21
 
-$setglobal crop  endo_apr21
+$setglobal crop  rotation_apr22
 $setglobal past  endo_jun13
 
 $setglobal forestry  dynamic_feb21
