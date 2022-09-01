@@ -152,7 +152,7 @@ sets
        / constant,
          lin_zero_10_50, lin_zero_20_50, lin_zero_20_30, lin_zero_20_70, lin_50pc_20_50, lin_50pc_20_50_extend65, lin_50pc_20_50_extend80,
          lin_50pc_10_50_extend90, lin_75pc_10_50_extend90, lin_80pc_20_50, lin_80pc_20_50_extend95, lin_90pc_20_50_extend95,
-	 lin_99-98-90pc_20_50-60-100, sigmoid_20pc_20_50, sigmoid_50pc_20_50, sigmoid_80pc_20_50, bespoke /
+	 lin_99-98-90pc_20_50-60-100, sigmoid_20pc_20_50, sigmoid_50pc_20_50, sigmoid_80pc_20_50, bespoke, bespoke_waste, bespoke_waste_orderly /
 
   t_scen15(t_all) Target years for transition to exogenous scenario diets
        / y2010, y2015, y2020, y2025, y2030, y2035, y2040, y2045, y2050 /
@@ -161,7 +161,7 @@ sets
        / 2100kcal, 2500kcal, bau, endogenous /
 
   EAT_scen15  Scenario of daily per capita calorie intake
-       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, fps_higher_rm, new_rum, nature_tech /
+       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, fps_higher_rm, new_rum, nature_tech, fps_higher_rm, bau, bau_alt_prot, 2C, 1C_pol, 1C_tech, rps_higher_rm, new_rum, 15C_Policy-Driven,2C_Orderly_Transition, nature_tech_5pc, nature_tech_10pc, nature_tech_20pc  /
 
    EAT_staples(kfo) All staple food products according to EAT Lancet definition
        / tece,maiz,trce,rice_pro,potato,cassav_sp /
