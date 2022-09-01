@@ -66,12 +66,11 @@ sets
       fps_lower,
       fps_130,
       fps_170,
-      fps_base,
       BAU,
       2C_Orderly_Transition,
       2C_Disorderly_Transition,
       15C_Policy-Driven,
-      15C_Tech-Driven  /
+      15C_Tech-Driven /
 
 ;
 *######################### R SECTION END (SETS) ################################

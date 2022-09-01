@@ -161,7 +161,7 @@ sets
        / 2100kcal, 2500kcal, bau, endogenous /
 
   EAT_scen15  Scenario of daily per capita calorie intake
-       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, fps_higher_rm, new_rum, nature_tech, fps_higher_rm, bau, bau_alt_prot, 2C, 1C_pol, 1C_tech, rps_higher_rm, new_rum, 15C_Policy-Driven,2C_Orderly_Transition, nature_tech_5pc, nature_tech_10pc, nature_tech_20pc  /
+       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, nature_tech, nature_tech_5pc, nature_tech_10pc, nature_tech_20pc  /
 
    EAT_staples(kfo) All staple food products according to EAT Lancet definition
        / tece,maiz,trce,rice_pro,potato,cassav_sp /
