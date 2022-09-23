@@ -162,7 +162,7 @@ sets
 
   EAT_scen15  Scenario of daily per capita calorie intake
        / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, fps_higher_rm, nature_tech, constant, nature_tech_5pc,
-       nature_tech_10pc, nature_tech_20pc /
+       nature_tech_10pc, nature_tech_20pc, bau, bau_AP_3pc /
 
    EAT_staples(kfo) All staple food products according to EAT Lancet definition
        / tece,maiz,trce,rice_pro,potato,cassav_sp /
