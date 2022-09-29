@@ -37,7 +37,7 @@ $setglobal c15_exo_wastescen  bespoke_waste
 $setglobal c15_kcal_scen  endogenous
 *   options:   healthy_BMI, 2100kcal, 2500kcal
 
-$setglobal c15_EAT_scen  nature_tech
+$setglobal c15_EAT_scen  bau_AP_3pc
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 

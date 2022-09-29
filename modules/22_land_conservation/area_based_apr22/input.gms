@@ -5,47 +5,30 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-$setglobal c22_protect_scenario  fps_nature
+$setglobal c22_protect_scenario  BH
 $setglobal c22_protect_scenario_noselect  none
-$setglobal c22_restoration_scenario  fps_nature
+$setglobal c22_restoration_scenario  none
 
 
 scalars
 s22_restore_land  If land restoration is allowed (0=no 1=yes) / 1 /
-s22_exogenous_restoration_targets turn on or off exogenous restoration targets / 1 /
-s22_conservation_start		Land conservation target year				/ 2020 /
-s22_conservation_target		Land conservation target year				/ 2030 /
+s22_exogenous_restoration_targets turn on or off exogenous restoration targets / 0 /
+s22_conservation_start		Land conservation target year				/ 2025 /
+s22_conservation_target		Land conservation target year				/ 2035 /
 ;
 
 * Set-switch for countries affected by regional land conservation policy
 * Default: all iso countries selected
 sets
   policy_countries22(iso) countries to be affected by land conservation policy
-                        / ABW,AFG,AGO,AIA,ALA,ALB,AND,ARE,ARG,ARM,
-                          ASM,ATA,ATF,ATG,AUS,AUT,AZE,BDI,BEL,BEN,
-                          BES,BFA,BGD,BGR,BHR,BHS,BIH,BLM,BLR,BLZ,
-                          BMU,BOL,BRA,BRB,BRN,BTN,BVT,BWA,CAF,CAN,
-                          CCK,CHN,CHE,CHL,CIV,CMR,COD,COG,COK,COL,
-                          COM,CPV,CRI,CUB,CUW,CXR,CYM,CYP,CZE,DEU,
-                          DJI,DMA,DNK,DOM,DZA,ECU,EGY,ERI,ESH,ESP,
-                          EST,ETH,FIN,FJI,FLK,FRA,FRO,FSM,GAB,GBR,
-                          GEO,GGY,GHA,GIB,GIN,GLP,GMB,GNB,GNQ,GRC,
-                          GRD,GRL,GTM,GUF,GUM,GUY,HKG,HMD,HND,HRV,
-                          HTI,HUN,IDN,IMN,IND,IOT,IRL,IRN,IRQ,ISL,
-                          ISR,ITA,JAM,JEY,JOR,JPN,KAZ,KEN,KGZ,KHM,
-                          KIR,KNA,KOR,KWT,LAO,LBN,LBR,LBY,LCA,LIE,
-                          LKA,LSO,LTU,LUX,LVA,MAC,MAF,MAR,MCO,MDA,
-                          MDG,MDV,MEX,MHL,MKD,MLI,MLT,MMR,MNE,MNG,
-                          MNP,MOZ,MRT,MSR,MTQ,MUS,MWI,MYS,MYT,NAM,
-                          NCL,NER,NFK,NGA,NIC,NIU,NLD,NOR,NPL,NRU,
-                          NZL,OMN,PAK,PAN,PCN,PER,PHL,PLW,PNG,POL,
-                          PRI,PRK,PRT,PRY,PSE,PYF,QAT,REU,ROU,RUS,
-                          RWA,SAU,SDN,SEN,SGP,SGS,SHN,SJM,SLB,SLE,
-                          SLV,SMR,SOM,SPM,SRB,SSD,STP,SUR,SVK,SVN,
-                          SWE,SWZ,SXM,SYC,SYR,TCA,TCD,TGO,THA,TJK,
-                          TKL,TKM,TLS,TON,TTO,TUN,TUR,TUV,TWN,TZA,
-                          UGA,UKR,UMI,URY,USA,UZB,VAT,VCT,VEN,VGB,
-                          VIR,VNM,VUT,WLF,WSM,YEM,ZAF,ZMB,ZWE /
+                        / ALA,AUS,AUT,BEL,BGR,CAN,CHN,CYP,EST,ESP,GBR,
+                               FRA,FRO,GGY,HUN,GIB,GRC,HRV,IMN,
+                               IRL,JEY,LTU,MLT,NLD,POL,PRT,ROU,
+                               AND,ISL,LIE,MCO,SJM,SMR,VAT,ALB,
+                               BIH,MKD,MNE,SRB,TUR,GRL,HKG,TWN,
+                               CZE,DEU,DNK,ITA,LUX,LVA,SVK,SVN,
+                               SWE,SWZ,JPN,KOR,FIN,NOR,USA,NZL,
+                               PRK,SPM /
 ;
 
 table f22_wdpa_baseline(t_all,j,land) Initial protected area as derived from WDPA until 2020 (mio. ha)

@@ -66,7 +66,8 @@ sets
       fps_lower,
       fps_130,
       fps_170,
-      fps_base /
+      fps_base,
+      fps_half /
 
 ;
 *######################### R SECTION END (SETS) ################################
@@ -81,7 +82,7 @@ sets
         / oils, ethanol /
 
    scen1st60 first generation bioenergy scenarios
-       / const2020, const2030, phaseout2020 /
+       / const2020, const2030, phaseout2020, LCFS /
 
    scen2ndres60 residues for second generation bioenergy scenarios
        / ssp1, ssp2, ssp3, ssp4, ssp5, sdp, off /

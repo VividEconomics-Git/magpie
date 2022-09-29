@@ -166,8 +166,8 @@ $title magpie
 * md5sum: f3c348b7428faae898b7e10ec9a89e41
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
-* Used data set: patch_IPR2022_fpsnature_220726.tgz
-* md5sum: 35ad6d0c640809d612990e9653d0e0e0
+* Used data set: patch_iluc_LCFS_shock_27_09.tgz
+* md5sum: d89e8f985461eef84c01fd04f54383be
 * Repository: ./patch_inputdata
 * 
 * Low resolution: c200
@@ -196,12 +196,10 @@ $title magpie
 * Warning messages:
 * 1: In gms::update_modules_embedding() :
 *   ./modules/38_factor_costs/mixed_feb17/realization.gms not found, this realization cannot be used!
-* 2: In untar2(tarfile, files, list, exdir, restore_times) :
-*   using pax extended headers
-* 3: In load("input/spatial_header.rda") :
+* 2: In load("input/spatial_header.rda") :
 *   strings not representable in native encoding will be translated to UTF-8
 * 
-* Last modification (input data): Wed Sep 14 22:59:33 2022
+* Last modification (input data): Thu Sep 29 11:26:23 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -227,7 +225,7 @@ $offlisting
 
 $setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  fps_nature
+$setglobal c_title  LCFS_shock_no_timber
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
