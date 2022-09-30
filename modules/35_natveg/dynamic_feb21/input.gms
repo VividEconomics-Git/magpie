@@ -5,8 +5,8 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-$setglobal c35_ad_policy  ndc
-$setglobal c35_aolc_policy  ndc
+$setglobal c35_ad_policy  npi
+$setglobal c35_aolc_policy  npi
 
 scalars
 s35_hvarea Flag for harvested area (0=zero 1=exognous 2=endogneous)	/ 0 /

@@ -166,8 +166,8 @@ $title magpie
 * md5sum: f3c348b7428faae898b7e10ec9a89e41
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
-* Used data set: patch_IPR2022_fpsnature_220726.tgz
-* md5sum: 35ad6d0c640809d612990e9653d0e0e0
+* Used data set: patch_Naturisk_master_220928.tgz
+* md5sum: 9490b5160d7af8c8fdc3326af1c6cce0
 * Repository: ./patch_inputdata
 * 
 * Low resolution: c200
@@ -194,14 +194,13 @@ $title magpie
 * * Call: withCallingHandlers(expr, message = messageHandler, warning = warningHandler,     error = errorHandler)
 * 
 * Warning messages:
-* 1: In gms::update_modules_embedding() :
+* 1: Settings are unknown in provided cfg (cfg$gms$c38_sticky_mode)!
+* 2: In gms::update_modules_embedding() :
 *   ./modules/38_factor_costs/mixed_feb17/realization.gms not found, this realization cannot be used!
-* 2: In untar2(tarfile, files, list, exdir, restore_times) :
+* 3: In untar2(tarfile, files, list, exdir, restore_times) :
 *   using pax extended headers
-* 3: In load("input/spatial_header.rda") :
-*   strings not representable in native encoding will be translated to UTF-8
 * 
-* Last modification (input data): Wed Sep 14 22:59:33 2022
+* Last modification (input data): Fri Sep 30 15:40:27 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -227,7 +226,7 @@ $offlisting
 
 $setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  fps_nature
+$setglobal c_title  current_policies
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -265,7 +264,7 @@ $setglobal natveg  dynamic_feb21
 
 $setglobal employment  exo_may22
 $setglobal labor_prod  off
-$setglobal factor_costs  per_ton_fao_may22
+$setglobal factor_costs  sticky_feb18
 $setglobal landconversion  calib
 
 $setglobal transport  gtap_nov12
