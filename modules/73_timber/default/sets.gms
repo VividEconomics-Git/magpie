@@ -42,7 +42,7 @@ woodfuel . (wood_fuel)
 
 scen_73 Forestry future scenario
 /
-nopaper, construction, construction_fixed
+nopaper, construction, construction_fixed, default_10pc, default_50pc
 /
 
 build_scen Building wood scenario
