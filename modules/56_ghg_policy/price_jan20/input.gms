@@ -8,14 +8,31 @@
 * Set-switch for countries affected by regional ghg policy
 * Default: all iso countries selected
 sets
-  policy_countries56(iso) countries to be affected by ghg policy / ALA,AUS,AUT,BEL,BGR,CAN,CHN,CYP,EST,ESP,GBR,
-                               FRA,FRO,GGY,HUN,GIB,GRC,HRV,IMN,
-                               IRL,JEY,LTU,MLT,NLD,POL,PRT,ROU,
-                               AND,ISL,LIE,MCO,SJM,SMR,VAT,ALB,
-                               BIH,MKD,MNE,SRB,TUR,GRL,HKG,TWN,
-                               CZE,DEU,DNK,ITA,LUX,LVA,SVK,SVN,
-                               SWE,SWZ,JPN,KOR,FIN,NOR,USA,NZL,
-                               PRK,SPM /
+  policy_countries56(iso) countries to be affected by ghg policy / ABW,AFG,AGO,AIA,ALA,ALB,AND,ARE,ARG,ARM,
+                                ASM,ATA,ATF,ATG,AUS,AUT,AZE,BDI,BEL,BEN,
+                                BES,BFA,BGD,BGR,BHR,BHS,BIH,BLM,BLR,BLZ,
+                                BMU,BOL,BRA,BRB,BRN,BTN,BVT,BWA,CAF,CAN,
+                                CCK,CHN,CHE,CHL,CIV,CMR,COD,COG,COK,COL,
+                                COM,CPV,CRI,CUB,CUW,CXR,CYM,CYP,CZE,DEU,
+                                DJI,DMA,DNK,DOM,DZA,ECU,EGY,ERI,ESH,ESP,
+                                EST,ETH,FIN,FJI,FLK,FRA,FRO,FSM,GAB,GBR,
+                                GEO,GGY,GHA,GIB,GIN,GLP,GMB,GNB,GNQ,GRC,
+                                GRD,GRL,GTM,GUF,GUM,GUY,HKG,HMD,HND,HRV,
+                                HTI,HUN,IDN,IMN,IND,IOT,IRL,IRN,IRQ,ISL,
+                                ISR,ITA,JAM,JEY,JOR,JPN,KAZ,KEN,KGZ,KHM,
+                                KIR,KNA,KOR,KWT,LAO,LBN,LBR,LBY,LCA,LIE,
+                                LKA,LSO,LTU,LUX,LVA,MAC,MAF,MAR,MCO,MDA,
+                                MDG,MDV,MEX,MHL,MKD,MLI,MLT,MMR,MNE,MNG,
+                                MNP,MOZ,MRT,MSR,MTQ,MUS,MWI,MYS,MYT,NAM,
+                                NCL,NER,NFK,NGA,NIC,NIU,NLD,NOR,NPL,NRU,
+                                NZL,OMN,PAK,PAN,PCN,PER,PHL,PLW,PNG,POL,
+                                PRI,PRK,PRT,PRY,PSE,PYF,QAT,REU,ROU,RUS,
+                                RWA,SAU,SDN,SEN,SGP,SGS,SHN,SJM,SLB,SLE,
+                                SLV,SMR,SOM,SPM,SRB,SSD,STP,SUR,SVK,SVN,
+                                SWE,SWZ,SXM,SYC,SYR,TCA,TCD,TGO,THA,TJK,
+                                TKL,TKM,TLS,TON,TTO,TUN,TUR,TUV,TWN,TZA,
+                                UGA,UKR,UMI,URY,USA,UZB,VAT,VCT,VEN,VGB,
+                                VIR,VNM,VUT,WLF,WSM,YEM,ZAF,ZMB,ZWE /
 ;
 
 scalars
@@ -32,8 +49,8 @@ scalars
   s56_offset helper for C price interpolation (1) / 0 /
 ;
 
-$setglobal c56_pollutant_prices  fps_developed
-$setglobal c56_pollutant_prices_noselect  fps_developing
+$setglobal c56_pollutant_prices  gen_zero_cp_a02
+$setglobal c56_pollutant_prices_noselect  R21M42-SSP2-NPi
 $setglobal c56_emis_policy  redd+natveg_nosoil
 
 $setglobal c56_carbon_stock_pricing  actualNoAcEst

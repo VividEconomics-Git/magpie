@@ -146,28 +146,28 @@ $title magpie
 
 *##################### R SECTION START (VERSION INFO) ##########################
 * 
-* Used data set: WARNINGS47_rev4.73_694a3a5b_magpie.tgz
-* md5sum: 4354382eb94148bbf899af7fbe5da688
+* Used data set: rev4.73_85b98466_magpie.tgz
+* md5sum: 890fb70d9b9fbbb1e26db309149cb3a2
 * Repository: ./patch_inputdata
 * 
-* Used data set: WARNINGS89_rev4.73_694a3a5b_fd712c0b_cellularmagpie_c200_MRI-ESM2-0-ssp370_lpjml-8e6c5eb1.tgz
-* md5sum: 567ba48b6e4a70f51aee8c9f73c48e29
+* Used data set: rev4.73_85b98466_fd712c0b_cellularmagpie_c200_MRI-ESM2-0-ssp370_lpjml-8e6c5eb1.tgz
+* md5sum: bbf99b1682c5868d11fae0af3aa28d66
 * Repository: ./patch_inputdata
 * 
-* Used data set: WARNINGS106_rev4.73_694a3a5b_validation.tgz 
-* md5sum: b5addb628f4ee622739e67904b35bfe6
-* Repository: ./patch_inputdata
-* 
-* Used data set: calibration_IPR2022.tgz
-* md5sum: 7d31b353923fb09815f7ad58c8b9148c
+* Used data set: rev4.73_85b98466_validation.tgz
+* md5sum: 91aab256f339d35cafa5e58ed5790f8d
 * Repository: ./patch_inputdata
 * 
 * Used data set: additional_data_rev4.26.tgz
-* md5sum: f3c348b7428faae898b7e10ec9a89e41
+* md5sum: NA
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
-* Used data set: patch_IPR2022_fpsnature_220726.tgz
-* md5sum: 35ad6d0c640809d612990e9653d0e0e0
+* Used data set: calibration_13reg_cm.tgz
+* md5sum: b9bdf43878ea4b390e86abe3483e8460
+* Repository: ./patch_inputdata
+* 
+* Used data set: mits_cm_request_220912_v7_globalcp_v11_ndc50pc.tgz
+* md5sum: 060ad275366569c4b34742dc8cc80960
 * Repository: ./patch_inputdata
 * 
 * Low resolution: c200
@@ -176,10 +176,10 @@ $title magpie
 * Total number of cells: 200
 * 
 * Number of cells per region:
-*   ANZ  BRA  CAN  CHA  DEA  EUR  IND  MEA  NEU  REF  RUS  SAF  SAS  SCO  SEA  TAF  TLA  USA
-*     3    9    4   22    1    7    6   26    7   10    5   11    7    8    5   25   26   18
+*   ASN  AUS  CHN  EUR  IND  JPN  MNA  NAM  OEU  RCA  ROW  SCA  SSA
+*     5    3   23    7    6    1   27   33    1   14   11   32   37
 * 
-* Regionscode: 694a3a5b
+* Regionscode: 85b98466
 * 
 * Regions data revision: 4.73
 * 
@@ -190,18 +190,11 @@ $title magpie
 * aggregation settings:
 * * Input resolution: 0.5
 * * Output resolution: c200
-* * Regionscode: 694a3a5b
+* * Regionscode: 85b98466
 * * Call: withCallingHandlers(expr, message = messageHandler, warning = warningHandler,     error = errorHandler)
 * 
-* Warning messages:
-* 1: In gms::update_modules_embedding() :
-*   ./modules/38_factor_costs/mixed_feb17/realization.gms not found, this realization cannot be used!
-* 2: In untar2(tarfile, files, list, exdir, restore_times) :
-*   using pax extended headers
-* 3: In load("input/spatial_header.rda") :
-*   strings not representable in native encoding will be translated to UTF-8
 * 
-* Last modification (input data): Mon Aug  1 19:33:52 2022
+* Last modification (input data): Mon Oct 17 16:45:51 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -225,9 +218,9 @@ $offlisting
 **************************MODEL SPECIFIC SCALARS********************************
 *                    Key parameters during model runs
 
-$setglobal c_timesteps  5year2050
+$setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  fps_nature
+$setglobal c_title  central1_orderly_a02
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -265,7 +258,7 @@ $setglobal natveg  dynamic_feb21
 
 $setglobal employment  exo_may22
 $setglobal labor_prod  off
-$setglobal factor_costs  per_ton_fao_may22
+$setglobal factor_costs  sticky_feb18
 $setglobal landconversion  calib
 
 $setglobal transport  gtap_nov12

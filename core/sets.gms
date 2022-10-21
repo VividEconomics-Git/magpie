@@ -15,32 +15,25 @@
 sets
 
   h all superregional economic regions
-    / ANZ, BRA, CAN, CHA, DEA, EUR, IND, MEA, NEU, REF, RUS, SAF, SAS, SCO,
-      SEA, TAF, TLA, USA /
+    / ASN, AUS, CHN, EUR, IND, JPN, MNA, NAM, OEU, RCA, ROW, SCA, SSA /
 
   i all economic regions
-    / ANZ, BRA, CAN, CHA, DEA, EUR, IND, MEA, NEU, REF, RUS, SAF, SAS, SCO,
-      SEA, TAF, TLA, USA /
+    / ASN, AUS, CHN, EUR, IND, JPN, MNA, NAM, OEU, RCA, ROW, SCA, SSA /
 
   supreg(h,i) mapping of superregions to its regions
-    / ANZ . (ANZ)
-      BRA . (BRA)
-      CAN . (CAN)
-      CHA . (CHA)
-      DEA . (DEA)
+    / ASN . (ASN)
+      AUS . (AUS)
+      CHN . (CHN)
       EUR . (EUR)
       IND . (IND)
-      MEA . (MEA)
-      NEU . (NEU)
-      REF . (REF)
-      RUS . (RUS)
-      SAF . (SAF)
-      SAS . (SAS)
-      SCO . (SCO)
-      SEA . (SEA)
-      TAF . (TAF)
-      TLA . (TLA)
-      USA . (USA) /
+      JPN . (JPN)
+      MNA . (MNA)
+      NAM . (NAM)
+      OEU . (OEU)
+      RCA . (RCA)
+      ROW . (ROW)
+      SCA . (SCA)
+      SSA . (SSA) /
 
   iso list of iso countries
     / BRN, IDN, KHM, LAO, MMR, MYS, PHL, SGP, THA, VNM, AUS, CCK, CXR, HMD,
@@ -63,76 +56,62 @@ sets
       SSD, STP, SWZ, SYC, TCD, TGO, TZA, UGA, ZAF, ZMB, ZWE /
 
   j number of LPJ cells
-    / ANZ_1*ANZ_3,
-      BRA_4*BRA_12,
-      CAN_13*CAN_16,
-      CHA_17*CHA_38,
-      DEA_39,
-      EUR_40*EUR_46,
-      IND_47*IND_52,
-      MEA_53*MEA_78,
-      NEU_79*NEU_85,
-      REF_86*REF_95,
-      RUS_96*RUS_100,
-      SAF_101*SAF_111,
-      SAS_112*SAS_118,
-      SCO_119*SCO_126,
-      SEA_127*SEA_131,
-      TAF_132*TAF_156,
-      TLA_157*TLA_182,
-      USA_183*USA_200 /
+    / ASN_1*ASN_5,
+      AUS_6*AUS_8,
+      CHN_9*CHN_31,
+      EUR_32*EUR_38,
+      IND_39*IND_44,
+      JPN_45,
+      MNA_46*MNA_72,
+      NAM_73*NAM_105,
+      OEU_106,
+      RCA_107*RCA_120,
+      ROW_121*ROW_131,
+      SCA_132*SCA_163,
+      SSA_164*SSA_200 /
 
   cell(i,j) number of LPJ cells per region i
-    / ANZ . (ANZ_1*ANZ_3)
-      BRA . (BRA_4*BRA_12)
-      CAN . (CAN_13*CAN_16)
-      CHA . (CHA_17*CHA_38)
-      DEA . (DEA_39)
-      EUR . (EUR_40*EUR_46)
-      IND . (IND_47*IND_52)
-      MEA . (MEA_53*MEA_78)
-      NEU . (NEU_79*NEU_85)
-      REF . (REF_86*REF_95)
-      RUS . (RUS_96*RUS_100)
-      SAF . (SAF_101*SAF_111)
-      SAS . (SAS_112*SAS_118)
-      SCO . (SCO_119*SCO_126)
-      SEA . (SEA_127*SEA_131)
-      TAF . (TAF_132*TAF_156)
-      TLA . (TLA_157*TLA_182)
-      USA . (USA_183*USA_200) /
+    / ASN . (ASN_1*ASN_5)
+      AUS . (AUS_6*AUS_8)
+      CHN . (CHN_9*CHN_31)
+      EUR . (EUR_32*EUR_38)
+      IND . (IND_39*IND_44)
+      JPN . (JPN_45)
+      MNA . (MNA_46*MNA_72)
+      NAM . (NAM_73*NAM_105)
+      OEU . (OEU_106)
+      RCA . (RCA_107*RCA_120)
+      ROW . (ROW_121*ROW_131)
+      SCA . (SCA_132*SCA_163)
+      SSA . (SSA_164*SSA_200) /
 
   i_to_iso(i,iso) mapping regions to iso countries
-    / ANZ . (AUS, HMD, NZL)
-      BRA . (BRA)
-      CAN . (CAN, SPM)
-      CHA . (CHN, HKG, MAC, TWN, PRK)
-      DEA . (JPN, KOR)
-      EUR . (ALA, AUT, BEL, BGR, CYP, CZE, DEU, DNK, ESP, EST, FIN, FRA, FRO)
-      EUR . (GBR, GGY, GIB, GRC, HRV, HUN, IMN, IRL, ITA, JEY, LTU, LUX, LVA)
-      EUR . (MLT, NLD, POL, PRT, ROU, SVK, SVN, SWE)
+    / ASN . (BRN, IDN, KHM, LAO, MMR, MYS, PHL, SGP, THA, VNM)
+      AUS . (AUS, CCK, CXR, HMD, NFK)
+      CHN . (CHN, HKG, MAC, TWN)
+      EUR . (ALA, AND, AUT, BEL, BGR, CHE, CYP, CZE, DEU, DNK, ESP, EST, FIN)
+      EUR . (FRA, FRO, GBR, GGY, GIB, GRC, HRV, HUN, IMN, IRL, ISL, ITA, JEY)
+      EUR . (LIE, LTU, LUX, LVA, MCO, MLT, NLD, NOR, POL, PRT, ROU, SJM, SMR)
+      EUR . (SVK, SVN, SWE, VAT)
       IND . (IND)
-      MEA . (ARE, BHR, DZA, EGY, ESH, IRN, IRQ, ISR, JOR, KWT, LBN, LBY, MAR)
-      MEA . (OMN, PSE, QAT, SAU, SDN, SYR, TUN, YEM)
-      NEU . (AND, CHE, ISL, LIE, MCO, NOR, SJM, SMR, VAT, ALB, BIH, MKD, MNE)
-      NEU . (SRB, TUR, GRL)
-      REF . (BLR, MDA, UKR, ARM, AZE, GEO, KAZ, KGZ, TJK, TKM, UZB, MNG)
-      RUS . (RUS)
-      SAF . (BWA, LSO, NAM, SWZ, ZAF)
-      SAS . (AFG, BGD, BTN, LKA, MDV, NPL, PAK)
-      SCO . (ARG, CHL, URY)
-      SEA . (BRN, IDN, KHM, LAO, MMR, MYS, PHL, SGP, THA, VNM, CCK, CXR, NFK)
-      SEA . (ASM, COK, FJI, FSM, GUM, IOT, KIR, MHL, MNP, NCL, NIU, NRU, PCN)
-      SEA . (PLW, PNG, PYF, SLB, TKL, TLS, TON, TUV, UMI, VUT, WLF, WSM, ATF)
-      TAF . (AGO, BDI, BEN, BFA, CAF, CIV, CMR, COD, COG, COM, CPV, DJI, ERI)
-      TAF . (ETH, GAB, GHA, GIN, GMB, GNB, GNQ, KEN, LBR, MDG, MLI, MOZ, MRT)
-      TAF . (MUS, MWI, MYT, NER, NGA, REU, RWA, SEN, SHN, SLE, SOM, SSD, STP)
-      TAF . (SYC, TCD, TGO, TZA, UGA, ZMB, ZWE)
-      TLA . (MEX, ATA, BMU, BVT, SGS, ABW, AIA, ATG, BES, BHS, BLM, BLZ, BOL)
-      TLA . (BRB, COL, CRI, CUB, CUW, CYM, DMA, DOM, ECU, FLK, GLP, GRD, GTM)
-      TLA . (GUF, GUY, HND, HTI, JAM, KNA, LCA, MAF, MSR, MTQ, NIC, PAN, PER)
-      TLA . (PRI, PRY, SLV, SUR, SXM, TCA, TTO, VCT, VEN, VGB, VIR)
-      USA . (USA) /
+      JPN . (JPN)
+      MNA . (ARE, BHR, DZA, EGY, ESH, IRN, IRQ, ISR, JOR, KWT, LBN, LBY, MAR)
+      MNA . (OMN, PSE, QAT, SAU, SDN, SYR, TUN, YEM)
+      NAM . (CAN, MEX, USA)
+      OEU . (ALB, BIH, BLR, MDA, MKD, MNE, SRB, UKR)
+      RCA . (ARM, AZE, GEO, KAZ, KGZ, RUS, TJK, TKM, TUR, UZB)
+      ROW . (AFG, ASM, ATA, BGD, BMU, BTN, BVT, COK, FJI, FSM, GRL, GUM, IOT)
+      ROW . (KIR, KOR, LKA, MDV, MHL, MNG, MNP, NCL, NIU, NPL, NRU, NZL, PAK)
+      ROW . (PCN, PLW, PNG, PRK, PYF, SGS, SLB, SPM, TKL, TLS, TON, TUV, UMI)
+      ROW . (VUT, WLF, WSM)
+      SCA . (ABW, AIA, ARG, ATG, BES, BHS, BLM, BLZ, BOL, BRA, BRB, CHL, COL)
+      SCA . (CRI, CUB, CUW, CYM, DMA, DOM, ECU, FLK, GLP, GRD, GTM, GUF, GUY)
+      SCA . (HND, HTI, JAM, KNA, LCA, MAF, MSR, MTQ, NIC, PAN, PER, PRI, PRY)
+      SCA . (SLV, SUR, SXM, TCA, TTO, URY, VCT, VEN, VGB, VIR)
+      SSA . (AGO, ATF, BDI, BEN, BFA, BWA, CAF, CIV, CMR, COD, COG, COM, CPV)
+      SSA . (DJI, ERI, ETH, GAB, GHA, GIN, GMB, GNB, GNQ, KEN, LBR, LSO, MDG)
+      SSA . (MLI, MOZ, MRT, MUS, MWI, MYT, NAM, NER, NGA, REU, RWA, SEN, SHN)
+      SSA . (SLE, SOM, SSD, STP, SWZ, SYC, TCD, TGO, TZA, UGA, ZAF, ZMB, ZWE) /
 
 ;
 *######################### R SECTION END (SETS) ################################

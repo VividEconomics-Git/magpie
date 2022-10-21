@@ -80,10 +80,20 @@ sets
       fps_developed,
       fps_developing,
       BAU,
-      2C_Orderly_Transition,
-      2C_Disorderly_Transition,
-      15C_Policy-Driven,
-      15C_Tech-Driven /
+      X2C_Orderly_Transition,
+      X2C_Disorderly_Transition,
+      X15C_Policy-Driven,
+      X15C_Tech-Driven,
+      gen_zero_cp,
+      gen_zero_cp_a0,
+      gen_zero_cp_a1,
+      gen_zero_cp_a2,
+      gen_zero_cp_a3,
+      gen_zero_cp_a4,
+      gen_zero_cp_a01,
+      gen_zero_cp_a02,
+      gen_zero_cp_a03,
+      gen_zero_cp_a04 /
 
   scen56 emission policy scenarios
     / none,
