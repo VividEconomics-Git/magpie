@@ -166,8 +166,8 @@ $title magpie
 * md5sum: f3c348b7428faae898b7e10ec9a89e41
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
-* Used data set: patch_IPR2022_fpsnature_220726.tgz
-* md5sum: 35ad6d0c640809d612990e9653d0e0e0
+* Used data set: zero meat.tgz
+* md5sum: 718db8d028647832c5686d419c4c5f5e
 * Repository: ./patch_inputdata
 * 
 * Low resolution: c200
@@ -194,14 +194,12 @@ $title magpie
 * * Call: withCallingHandlers(expr, message = messageHandler, warning = warningHandler,     error = errorHandler)
 * 
 * Warning messages:
-* 1: In gms::update_modules_embedding() :
-*   ./modules/38_factor_costs/mixed_feb17/realization.gms not found, this realization cannot be used!
-* 2: In untar2(tarfile, files, list, exdir, restore_times) :
+* 1: In untar2(tarfile, files, list, exdir, restore_times) :
 *   using pax extended headers
-* 3: In load("input/spatial_header.rda") :
+* 2: In load("input/spatial_header.rda") :
 *   strings not representable in native encoding will be translated to UTF-8
 * 
-* Last modification (input data): Wed Sep 14 22:59:33 2022
+* Last modification (input data): Wed Nov  2 14:40:13 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -225,9 +223,9 @@ $offlisting
 **************************MODEL SPECIFIC SCALARS********************************
 *                    Key parameters during model runs
 
-$setglobal c_timesteps  5year2050
+$setglobal c_timesteps  quicktest2
 $setglobal c_past  till_2010
-$setglobal c_title  fps_nature
+$setglobal c_title  training_zero_meat
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -265,7 +263,7 @@ $setglobal natveg  dynamic_feb21
 
 $setglobal employment  exo_may22
 $setglobal labor_prod  off
-$setglobal factor_costs  per_ton_fao_may22
+$setglobal factor_costs  sticky_feb18
 $setglobal landconversion  calib
 
 $setglobal transport  gtap_nov12
