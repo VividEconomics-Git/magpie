@@ -158,16 +158,16 @@ $title magpie
 * md5sum: b5addb628f4ee622739e67904b35bfe6
 * Repository: ./patch_inputdata
 * 
-* Used data set: additional_data_rev4.26.tgz
-* md5sum: f3c348b7428faae898b7e10ec9a89e41
-* Repository: https://rse.pik-potsdam.de/data/magpie/public
-* 
 * Used data set: calibration_IPR2022.tgz
 * md5sum: 7d31b353923fb09815f7ad58c8b9148c
 * Repository: ./patch_inputdata
 * 
-* Used data set: patch_IPR2022_fps_221010.tgz
-* md5sum: e50521dce4d28670e24f172f0a3492de
+* Used data set: additional_data_rev4.26.tgz
+* md5sum: f3c348b7428faae898b7e10ec9a89e41
+* Repository: https://rse.pik-potsdam.de/data/magpie/public
+* 
+* Used data set: patch_IPR2022_fpsnature_220726.tgz
+* md5sum: 35ad6d0c640809d612990e9653d0e0e0
 * Repository: ./patch_inputdata
 * 
 * Low resolution: c200
@@ -194,24 +194,14 @@ $title magpie
 * * Call: withCallingHandlers(expr, message = messageHandler, warning = warningHandler,     error = errorHandler)
 * 
 * Warning messages:
-* 1: package 'tidyverse' was built under R version 4.2.1
-* 2: package 'tibble' was built under R version 4.2.1
-* 3: package 'tidyr' was built under R version 4.2.1
-* 4: package 'readr' was built under R version 4.2.1
-* 5: package 'purrr' was built under R version 4.2.1
-* 6: package 'dplyr' was built under R version 4.2.1
-* 7: package 'stringr' was built under R version 4.2.1
-* 8: package 'forcats' was built under R version 4.2.1
-* 9: package 'gdxdt' was built under R version 4.2.1
-* 10: package 'readxl' was built under R version 4.2.1
-* 11: package 'countrycode' was built under R version 4.2.1
-* 12: package 'aws.s3' was built under R version 4.2.1
-* 13: package 'raster' was built under R version 4.2.1
-* 14: package 'sp' was built under R version 4.2.1
-* 15: package 'openxlsx' was built under R version 4.2.1
-* 16: package 'sf' was built under R version 4.2.1
+* 1: In gms::update_modules_embedding() :
+*   ./modules/38_factor_costs/mixed_feb17/realization.gms not found, this realization cannot be used!
+* 2: In untar2(tarfile, files, list, exdir, restore_times) :
+*   using pax extended headers
+* 3: In load("input/spatial_header.rda") :
+*   strings not representable in native encoding will be translated to UTF-8
 * 
-* Last modification (input data): Tue Dec 13 11:52:44 2022
+* Last modification (input data): Wed Sep 14 22:59:33 2022
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -235,9 +225,9 @@ $offlisting
 **************************MODEL SPECIFIC SCALARS********************************
 *                    Key parameters during model runs
 
-$setglobal c_timesteps  quicktest2
+$setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  IPR22_costsv2
+$setglobal c_title  fps_nature
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -268,15 +258,15 @@ $setglobal ageclass  feb21
 $setglobal crop  endo_apr21
 $setglobal past  endo_jun13
 
-$setglobal forestry  NBS_forestry_costs_nov22
+$setglobal forestry  dynamic_feb21
 
 $setglobal urban  exo_nov21
 $setglobal natveg  dynamic_feb21
 
 $setglobal employment  exo_may22
 $setglobal labor_prod  off
-$setglobal factor_costs  sticky_feb18
-$setglobal landconversion  NBS_land_acq_costs_nov22
+$setglobal factor_costs  per_ton_fao_may22
+$setglobal landconversion  calib
 
 $setglobal transport  gtap_nov12
 $setglobal area_equipped_for_irrigation  endo_apr13
@@ -293,7 +283,7 @@ $setglobal phosphorus  off
 $setglobal awms  ipcc2006_aug16
 $setglobal ghg_policy  price_jan20
 $setglobal maccs  on_sep16
-$setglobal peatland  NBS_peatland_costs_nov22
+$setglobal peatland  on
 $setglobal som  static_jan19
 
 $setglobal bioenergy  1stgen_priced_dec18

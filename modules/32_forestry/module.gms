@@ -16,6 +16,5 @@
 *' @authors Florian Humpenöder, Abhijeet Mishra
 
 *###################### R SECTION START (MODULETYPES) ##########################
-$Ifi "%forestry%" == "NBS_forestry_costs_nov22" $include "./modules/32_forestry/NBS_forestry_costs_nov22/realization.gms"
 $Ifi "%forestry%" == "dynamic_feb21" $include "./modules/32_forestry/dynamic_feb21/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################
