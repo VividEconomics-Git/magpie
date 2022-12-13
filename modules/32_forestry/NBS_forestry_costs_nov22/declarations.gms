@@ -13,7 +13,9 @@ scalars
 parameters
  i32_max_aff_area_glo(t)                            Maximum global endogenous afforestation area (mio. ha)
  i32_max_aff_area_reg(t,i)                          Maximum regional endogenous afforestation area (mio. ha)
- i32_calib_forestry(t,i,j,cost_type)                Calibration factor for recurring and one-off costs of forestation
+ i32_calib_forestry(i,j,cost_type)                  Calibration factor for recurring and one-off costs of forestation
+ i32_cost_forestry_onetime(i,j)                     Calibration factor for one-off costs of forestation (created)
+ i32_cost_forestry_recur(i,j)                       Calibration factor for recurring costs of forestation (created)
  p32_aff_pol(t,j)                                   NDC forest stock (mio. ha)
  p32_aff_pol_timestep(t,j)                          NDC afforestation per time step (mio. ha)
  p32_aff_pot(t,j)                                   Potential afforestation area (mio. ha)
@@ -21,7 +23,7 @@ parameters
  p32_carbon_density_ac(t,j,type32,ac,ag_pools)      Carbon density for ac and ag_pools (tC per ha)
  p32_carbon_density_ac_forestry(t_all,j,ac)         Above ground carbon density for age classes and carbon pools (tC per ha)
  p32_carbon_density_ac_marg(t_all,j,ac)             Marginal above ground carbon density for age classes and carbon pools (tC per ha)
- pc32_area_rotation(j)							Forestry area at rotation length end used as weight for regional aggregation (mio. ha)
+ pc32_area_rotation(j)							    Forestry area at rotation length end used as weight for regional aggregation (mio. ha)
  p32_land(t,j,type32,ac)                            Forestry land for each cell wood type and age class before and after optimization (mio. ha)
  pc32_land(j,type32,ac)                             Forestry land per forestry land type initialization of the optimization (mio. ha)
  pc32_yield_forestry_future(j)                      Cellular timber yield expected in the future (m3 per ha per year)

@@ -5,14 +5,14 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-$setglobal c22_protect_scenario  fps_nature
+$setglobal c22_protect_scenario  none
 $setglobal c22_protect_scenario_noselect  none
-$setglobal c22_restoration_scenario  fps_nature
+$setglobal c22_restoration_scenario  none
 
 
 scalars
 s22_restore_land  If land restoration is allowed (0=no 1=yes) / 1 /
-s22_exogenous_restoration_targets turn on or off exogenous restoration targets / 1 /
+s22_exogenous_restoration_targets turn on or off exogenous restoration targets / 0 /
 s22_conservation_start		Land conservation target year				/ 2020 /
 s22_conservation_target		Land conservation target year				/ 2030 /
 ;

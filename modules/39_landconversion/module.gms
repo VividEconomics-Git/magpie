@@ -18,5 +18,6 @@
 *' @authors Florian Humpenöder, Jan Philipp Dietrich, Ulrich Kreidenweis
 
 *###################### R SECTION START (MODULETYPES) ##########################
+$Ifi "%landconversion%" == "NBS_land_acq_costs_nov22" $include "./modules/39_landconversion/NBS_land_acq_costs_nov22/realization.gms"
 $Ifi "%landconversion%" == "calib" $include "./modules/39_landconversion/calib/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################

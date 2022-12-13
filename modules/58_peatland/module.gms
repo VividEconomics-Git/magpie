@@ -12,6 +12,7 @@
 *' @authors Florian Humpenöder
 
 *###################### R SECTION START (MODULETYPES) ##########################
+$Ifi "%peatland%" == "NBS_peatland_costs_nov22" $include "./modules/58_peatland/NBS_peatland_costs_nov22/realization.gms"
 $Ifi "%peatland%" == "off" $include "./modules/58_peatland/off/realization.gms"
 $Ifi "%peatland%" == "on" $include "./modules/58_peatland/on/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################

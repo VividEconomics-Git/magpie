@@ -16,6 +16,10 @@ ac_sub(ac) = yes$(ord(ac) > (m_yeardiff_forestry(t)/5));
 v32_hvarea_forestry.fx(j,ac_est) = 0;
 v32_land_reduction.fx(j,type32,ac_est) = 0;
 
+*JN cost updates
+i32_cost_forestry_onetime(i,j) = s32_reESTBcost * i32_calib_forestry(i,j,"onetime");
+i32_cost_forestry_recur(i,j) = s32_recurring_cost * i32_calib_forestry(i,j,"recurring");
+
 ** START ndc **
 * calc NPI/NDC afforestation per time step based on forest stock change
    p32_aff_pol_timestep("y1995",j) = 0;
@@ -157,9 +161,5 @@ p32_updated_gs_reg(t,i)$(sum((cell(i,j),ac_sub),p32_land(t,j,"plant",ac_sub))>0)
 pm_land_conservation(t,j,"secdforest","restore")$(pm_land_conservation(t,j,"secdforest","restore") > sum(ac, p32_land(t,j,"ndc",ac) + p32_land(t,j,"aff",ac)))
         = pm_land_conservation(t,j,"secdforest","restore") - sum(ac, p32_land(t,j,"ndc",ac) + p32_land(t,j,"aff",ac));
 pm_land_conservation(t,j,"secdforest","restore")$(pm_land_conservation(t,j,"secdforest","restore") <= sum(ac, p32_land(t,j,"ndc",ac) + p32_land(t,j,"aff",ac))) = 0;
-
-* Define forestry costs onetime and recurring
-i32_cost_forestry_onetime(t,i,j) = s32_reESTBcost * i32_calib_forestry (t,i,j ,”onetime”);
-i32_cost_forestry_recur(t,i,j) = s32_recurring_cost * i32_calib_forestry (t,i,j ,”recurring”);
 
 *** EOF presolve.gms ***

@@ -69,9 +69,9 @@ $include "./modules/32_forestry/input/npi_ndc_aff_pol.cs3"
 $offdelim
 ;
 
-table f32_calib_forestry(t,i,j,cost_type) Calibration factor for costs of planting and restoring forests
+table f32_calib_forestry(i,j,cost_type) Calibration factor for costs of planting and restoring forests
 $ondelim
-$include "./modules/32_forestry/input/f32_calib_forestry.csv”
+$include "./modules/32_forestry/input/f32_calib_forestry.csv"
 $offdelim
 ;
 

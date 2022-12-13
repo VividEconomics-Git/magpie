@@ -39,7 +39,7 @@ scalars
   s60_2ndgen_bioenergy_dem_min Minimum dedicated 2nd generation bioenergy demand assumed in each region (mio. GJ per yr) / 1 /
 ;
 
-$setglobal c60_2ndgen_biodem  fps_base
+$setglobal c60_2ndgen_biodem  R21M42-SSP2-NPi
 $setglobal c60_2ndgen_biodem_noselect  R21M42-SSP2-NPi
 
 
@@ -73,7 +73,7 @@ $offdelim
 ;
 
 
-$setglobal c60_1stgen_biodem  phaseout2020
+$setglobal c60_1stgen_biodem  const2020
 *   options:  "const2020", "const2030", "phaseout2020"
 
 table f60_1stgen_bioenergy_dem(t_all,i,scen1st60,kall) annual 1st generation bioenergy demand (mio. GJ per yr)
