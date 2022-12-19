@@ -71,7 +71,7 @@ $offdelim
 
 table f32_calib_forestry(t,i,j,cost_type) Calibration factor for costs of planting and restoring forests
 $ondelim
-$include "./modules/32_forestry/input/f32_calib_forestry.csv”
+$include "./modules/32_forestry/input/f32_calib_forestry.csv"
 $offdelim
 ;
 
