@@ -13,7 +13,6 @@ scalars
 parameters
  i32_max_aff_area_glo(t)                            Maximum global endogenous afforestation area (mio. ha)
  i32_max_aff_area_reg(t,i)                          Maximum regional endogenous afforestation area (mio. ha)
- i32_calib_forestry(t,i,j,cost_type)                Calibration factor for recurring and one-off costs of forestation
  p32_aff_pol(t,j)                                   NDC forest stock (mio. ha)
  p32_aff_pol_timestep(t,j)                          NDC afforestation per time step (mio. ha)
  p32_aff_pot(t,j)                                   Potential afforestation area (mio. ha)

@@ -158,8 +158,4 @@ pm_land_conservation(t,j,"secdforest","restore")$(pm_land_conservation(t,j,"secd
         = pm_land_conservation(t,j,"secdforest","restore") - sum(ac, p32_land(t,j,"ndc",ac) + p32_land(t,j,"aff",ac));
 pm_land_conservation(t,j,"secdforest","restore")$(pm_land_conservation(t,j,"secdforest","restore") <= sum(ac, p32_land(t,j,"ndc",ac) + p32_land(t,j,"aff",ac))) = 0;
 
-* Define forestry costs onetime and recurring
-i32_cost_forestry_onetime(t,i,j) = s32_reESTBcost * i32_calib_forestry (t,i,j ,”onetime”);
-i32_cost_forestry_recur(t,i,j) = s32_recurring_cost * i32_calib_forestry (t,i,j ,”recurring”);
-
 *** EOF presolve.gms ***
