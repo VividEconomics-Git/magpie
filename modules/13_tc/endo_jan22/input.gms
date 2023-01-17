@@ -25,7 +25,7 @@ $include "./modules/13_tc/input/f13_tcguess.cs4"
 $offdelim
 /;
 
-$setglobal c13_tccost  medium
+$setglobal c13_tccost  high
 
 table f13_tc_factor(t_all,scen13) Regression factor (USD05PPP per ha)
 $ondelim

@@ -8,14 +8,27 @@
 * Set-switch for countries affected by regional ghg policy
 * Default: all iso countries selected
 sets
-  policy_countries56(iso) countries to be affected by ghg policy / ALA,AUS,AUT,BEL,BGR,CAN,CHN,CYP,EST,ESP,GBR,
-                               FRA,FRO,GGY,HUN,GIB,GRC,HRV,IMN,
-                               IRL,JEY,LTU,MLT,NLD,POL,PRT,ROU,
-                               AND,ISL,LIE,MCO,SJM,SMR,VAT,ALB,
-                               BIH,MKD,MNE,SRB,TUR,GRL,HKG,TWN,
-                               CZE,DEU,DNK,ITA,LUX,LVA,SVK,SVN,
-                               SWE,SWZ,JPN,KOR,FIN,NOR,USA,NZL,
-                               PRK,SPM /
+  policy_countries56(iso) countries to be affected by ghg policy / AUS, HMD, CHN, HKG, MAC, TWN, ALA, 
+                                   AND, AUT, BEL, BGR, CHE, CYP, CZE, 
+                                   DEU, DNK, ESP, EST, FIN, FRA, FRO, 
+                                   GBR, GGY, GIB, GRC, HRV, HUN, IMN,
+                                   IRL, ISL, ITA, JEY, LIE, LTU, LUX, 
+                                   LVA, MCO, MLT, NLD, NOR, POL, PRT, 
+                                   ROU, SJM, SMR, SVK, SVN, SWE, VAT, 
+                                   IND, JPN, ARE, BHR, DZA, EGY, ESH, 
+                                   IRN, IRQ, ISR, JOR, KWT, LBN, LBY,
+                                   MAR, OMN, PSE, QAT, SAU, SDN, SYR, 
+                                   TUN, YEM, CAN, ALB, BIH, BLR, MDA, 
+                                   MKD, MNE, SRB, UKR, ARM, AZE, GEO, 
+                                   KAZ, KGZ, RUS, TJK, TKM, TUR, UZB, 
+                                   GRL, KOR, MNG, NZL, PRK, SPM, BRA,
+                                   BWA, LSO, NAM, SWZ, ZAF, BRN, IDN, 
+                                   KHM, LAO, MMR, MYS, PHL, SGP, THA, 
+                                   VNM, CCK, CXR, NFK, ASM, COK, FJI, 
+                                   FSM, GUM, IOT, KIR, MHL, MNP, NCL, 
+                                   NIU, NRU, PCN, PLW, PNG, PYF, SLB, 
+                                   TKL, TLS, TON, TUV, UMI, VUT, WLF, 
+                                   WSM, ARG, CHL, URY, ATF /
 ;
 
 scalars

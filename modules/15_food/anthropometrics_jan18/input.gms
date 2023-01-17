@@ -37,7 +37,7 @@ $setglobal c15_exo_wastescen  bespoke_waste
 $setglobal c15_kcal_scen  endogenous
 *   options:   healthy_BMI, 2100kcal, 2500kcal
 
-$setglobal c15_EAT_scen  nature_tech
+$setglobal c15_EAT_scen  current_trajectories
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 
@@ -87,7 +87,7 @@ scalar s15_convergence Convergence criterion (1) / 0.005 /;
 
 scalar s15_exo_waste Switch for transition towards exogenous food waste scenario (1)  / 1 /;
 
-scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.2 /;
+scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.33 /;
 
 scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 1 /;
 
