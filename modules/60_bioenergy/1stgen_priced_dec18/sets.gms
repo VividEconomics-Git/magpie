@@ -85,7 +85,7 @@ sets
         / oils, ethanol /
 
    scen1st60 first generation bioenergy scenarios
-       / const2020, const2030, phaseout2020 /
+       / const2020, const2030, phaseout2020, BC_100, BC_50, BC_30, BC_20, BC_10, BC_5 /
 
    scen2ndres60 residues for second generation bioenergy scenarios
        / ssp1, ssp2, ssp3, ssp4, ssp5, sdp, off /
