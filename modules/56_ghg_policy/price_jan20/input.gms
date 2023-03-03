@@ -8,33 +8,37 @@
 * Set-switch for countries affected by regional ghg policy
 * Default: all iso countries selected
 sets
-  policy_countries56(iso) countries to be affected by ghg policy / AUS, HMD, CHN, HKG, MAC, TWN, ALA, 
-                                   AND, AUT, BEL, BGR, CHE, CYP, CZE, 
-                                   DEU, DNK, ESP, EST, FIN, FRA, FRO, 
-                                   GBR, GGY, GIB, GRC, HRV, HUN, IMN,
-                                   IRL, ISL, ITA, JEY, LIE, LTU, LUX, 
-                                   LVA, MCO, MLT, NLD, NOR, POL, PRT, 
-                                   ROU, SJM, SMR, SVK, SVN, SWE, VAT, 
-                                   IND, JPN, ARE, BHR, DZA, EGY, ESH, 
-                                   IRN, IRQ, ISR, JOR, KWT, LBN, LBY,
-                                   MAR, OMN, PSE, QAT, SAU, SDN, SYR, 
-                                   TUN, YEM, CAN, ALB, BIH, BLR, MDA, 
-                                   MKD, MNE, SRB, UKR, ARM, AZE, GEO, 
-                                   KAZ, KGZ, RUS, TJK, TKM, TUR, UZB, 
-                                   GRL, KOR, MNG, NZL, PRK, SPM, BRA,
-                                   BWA, LSO, NAM, SWZ, ZAF, BRN, IDN, 
-                                   KHM, LAO, MMR, MYS, PHL, SGP, THA, 
-                                   VNM, CCK, CXR, NFK, ASM, COK, FJI, 
-                                   FSM, GUM, IOT, KIR, MHL, MNP, NCL, 
-                                   NIU, NRU, PCN, PLW, PNG, PYF, SLB, 
-                                   TKL, TLS, TON, TUV, UMI, VUT, WLF, 
-                                   WSM, ARG, CHL, URY, ATF /
+  policy_countries56(iso) countries to be affected by ghg policy / ABW,AFG,AGO,AIA,ALA,ALB,AND,ARE,ARG,ARM,
+                          ASM,ATA,ATF,ATG,AUS,AUT,AZE,BDI,BEL,BEN,
+                          BES,BFA,BGD,BGR,BHR,BHS,BIH,BLM,BLR,BLZ,
+                          BMU,BOL,BRA,BRB,BRN,BTN,BVT,BWA,CAF,CAN,
+                          CCK,CHN,CHE,CHL,CIV,CMR,COD,COG,COK,COL,
+                          COM,CPV,CRI,CUB,CUW,CXR,CYM,CYP,CZE,DEU,
+                          DJI,DMA,DNK,DOM,DZA,ECU,EGY,ERI,ESH,ESP,
+                          EST,ETH,FIN,FJI,FLK,FRA,FRO,FSM,GAB,GBR,
+                          GEO,GGY,GHA,GIB,GIN,GLP,GMB,GNB,GNQ,GRC,
+                          GRD,GRL,GTM,GUF,GUM,GUY,HKG,HMD,HND,HRV,
+                          HTI,HUN,IDN,IMN,IND,IOT,IRL,IRN,IRQ,ISL,
+                          ISR,ITA,JAM,JEY,JOR,JPN,KAZ,KEN,KGZ,KHM,
+                          KIR,KNA,KOR,KWT,LAO,LBN,LBR,LBY,LCA,LIE,
+                          LKA,LSO,LTU,LUX,LVA,MAC,MAF,MAR,MCO,MDA,
+                          MDG,MDV,MEX,MHL,MKD,MLI,MLT,MMR,MNE,MNG,
+                          MNP,MOZ,MRT,MSR,MTQ,MUS,MWI,MYS,MYT,NAM,
+                          NCL,NER,NFK,NGA,NIC,NIU,NLD,NOR,NPL,NRU,
+                          NZL,OMN,PAK,PAN,PCN,PER,PHL,PLW,PNG,POL,
+                          PRI,PRK,PRT,PRY,PSE,PYF,QAT,REU,ROU,RUS,
+                          RWA,SAU,SDN,SEN,SGP,SGS,SHN,SJM,SLB,SLE,
+                          SLV,SMR,SOM,SPM,SRB,SSD,STP,SUR,SVK,SVN,
+                          SWE,SWZ,SXM,SYC,SYR,TCA,TCD,TGO,THA,TJK,
+                          TKL,TKM,TLS,TON,TTO,TUN,TUR,TUV,TWN,TZA,
+                          UGA,UKR,UMI,URY,USA,UZB,VAT,VCT,VEN,VGB,
+                          VIR,VNM,VUT,WLF,WSM,YEM,ZAF,ZMB,ZWE /
 ;
 
 scalars
   s56_limit_ch4_n2o_price upper limit for CH4 and N2O GHG prices (USD05MER per tC) / 1000 /
   s56_cprice_red_factor reduction factor for CO2 price (-) / 1 /
-  s56_ghgprice_start start year for ghg price phase-in (year) / 2020 /
+  s56_ghgprice_start start year for ghg price phase-in (year) / 2025 /
   s56_ghgprice_phase_in  Switch for phasing-in GHG price over a 20 year period  (1=on 0=off) / 0 /
   s56_ghgprice_devstate_scaling Switch for scaling GHG price with development state (1=on 0=off) / 0 /
   s56_c_price_induced_aff Switch for C price driven afforestation (1=on 0=off) / 1 /
@@ -45,8 +49,8 @@ scalars
   s56_offset helper for C price interpolation (1) / 0 /
 ;
 
-$setglobal c56_pollutant_prices  fps_developed
-$setglobal c56_pollutant_prices_noselect  fps_developing
+$setglobal c56_pollutant_prices  R21M42-SSP2-NPi
+$setglobal c56_pollutant_prices_noselect  R21M42-SSP2-NPi
 $setglobal c56_emis_policy  redd+natveg_nosoil
 
 $setglobal c56_carbon_stock_pricing  actualNoAcEst
