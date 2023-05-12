@@ -79,9 +79,9 @@ i15_exo_foodscen_fader(t,iso) = (1-f15_food_substitution_fader(t,"%c15_exo_foods
 * consistent with the target year of the fader:
 
 $ifthen "%c15_exo_foodscen%" == "lin_zero_20_30"
-  i15_intake_EATLancet_all(iso,kcal_scen15,EAT_scen15,kfo) = f15_intake_EATLancet("y2030",iso,kcal_scen15,EAT_scen15,kfo);
+  i15_intake_EATLancet_all("y2030",iso,kcal_scen15,EAT_scen15,kfo) = f15_intake_EATLancet("y2030",iso,kcal_scen15,EAT_scen15,kfo);
 $else
-  i15_intake_EATLancet_all(iso,kcal_scen15,EAT_scen15,kfo) = f15_intake_EATLancet("y2050",iso,kcal_scen15,EAT_scen15,kfo);
+  i15_intake_EATLancet_all("y2050",iso,kcal_scen15,EAT_scen15,kfo) = f15_intake_EATLancet("y2050",iso,kcal_scen15,EAT_scen15,kfo);
 $endif
 
 * initial prices in $US per Kcal

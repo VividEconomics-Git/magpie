@@ -311,7 +311,7 @@ $elseif "%c15_kcal_scen%" == "endo"
   i15_intake_scen_target(t,iso) = p15_intake_total(t,iso);
   p15_bmi_shr_target(t,iso,sex,age,bmi_group15) = p15_bmi_shr_calibrated(t,iso,sex,age,bmi_group15);
 $else
-  i15_intake_scen_target(t,iso) = sum(kfo,i15_intake_EATLancet_all(iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo));
+  i15_intake_scen_target(t,iso) = sum(kfo,i15_intake_EATLancet_all("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo));
   p15_bmi_shr_target(t,iso,sex,age,bmi_group15)=0;
   p15_bmi_shr_target(t,iso,sex,age,"medium")=1;
 $endif
@@ -329,8 +329,427 @@ $endif
 *' The EAT lancet target values are the same for non-staples irrespective of the calorie target
 *' Only non-staples differ
 
+*' CM code edits
+*' attempting to add annual specification to EATLancet like old realisation
+
+$ifthen "%c15_exo_foodscen%" == "bespoke"
+  if((m_year(t) = 2010),
+  i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    Elseif((m_year(t) = 2015)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    Elseif((m_year(t) = 2020)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    Elseif((m_year(t) = 2025)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );   
+    Elseif((m_year(t) = 2030)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    Elseif((m_year(t) = 2035)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    Elseif((m_year(t) = 2040)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    Elseif((m_year(t) = 2045)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    Elseif((m_year(t) = 2050)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+    else
+        i15_intake_EATLancet(iso,kfo) =
+                f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);    
+    );
     i15_intake_EATLancet(iso,kfo) =
-          i15_intake_EATLancet_all(iso,"2100kcal","%c15_EAT_scen%",kfo);
+          f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+*' upper bound for monogastric meat
+    if (s15_exo_monogastric=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15)$(i15_intake_detailed_scen_target(t,iso,EAT_monogastrics15) > f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_monogastrics15));
+*' upper bound for ruminant products
+    if (s15_exo_ruminant=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_ruminants15)$(i15_intake_detailed_scen_target(t,iso,EAT_ruminants15) > f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_ruminants15));
+*' target value for fish
+    if (s15_exo_fish=1,
+        i15_intake_detailed_scen_target(t,iso,"fish") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","fish"));
+*' lower bound for fruits, veggies, nuts and seeds
+    if (s15_exo_fruitvegnut=1,
+    i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15)$(i15_intake_detailed_scen_target(t,iso,EAT_fruitvegnutseed15) < f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_fruitvegnutseed15));
+*' lower bound for pulses
+    if (s15_exo_pulses=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_pulses15)$(i15_intake_detailed_scen_target(t,iso,EAT_pulses15) < f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_pulses15));
+*' upper bound for sugar
+    if (s15_exo_sugar=1,
+      i15_intake_detailed_scen_target(t,iso,EAT_sugar15)$(i15_intake_detailed_scen_target(t,iso,EAT_sugar15) > f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15))
+        = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",EAT_sugar15));
+*' target value for oils
+    if (s15_exo_oils=1,
+      i15_intake_detailed_scen_target(t,iso,"oils") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","oils"));
+*' target value for brans
+    if (s15_exo_brans=1,
+      i15_intake_detailed_scen_target(t,iso,"brans") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","brans"));
+*' target value for single cell protein
+    if (s15_exo_scp=1,
+      i15_intake_detailed_scen_target(t,iso,"scp") = f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%","scp"));
+*' upper bound for alcohol
+* alcohol target is not part of EAT Lancet recommendation. Upper boundary is therefore included as specific switch s15_alc_scen
+    if (s15_exo_alcohol=1,
+      i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
+        = s15_alc_scen*i15_intake_scen_target(t,iso);
+    );
+*' might need to add: i15_intake_scen_target(t,iso) = sum(kfo,i15_intake_EATLancet(iso,kfo));
+$else
+       i15_intake_EATLancet(iso,kfo) =
+          i15_intake_EATLancet_all("y2050",iso,"2100kcal","%c15_EAT_scen%",kfo);
 
 *' upper bound for monogastric meat
     if (s15_exo_monogastric=1,
@@ -370,6 +789,9 @@ $endif
       i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
         = s15_alc_scen*i15_intake_scen_target(t,iso);
     );
+$endif
+
+
 
     i15_intake_detailed_scen_target(t,iso,EAT_staples)$(sum(EAT_staples2,i15_intake_EATLancet(iso,EAT_staples2))>0) = (
               i15_intake_scen_target(t,iso) - sum(EAT_nonstaples,i15_intake_detailed_scen_target(t,iso,EAT_nonstaples)) )*(

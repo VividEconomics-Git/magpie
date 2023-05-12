@@ -152,16 +152,17 @@ sets
        / constant,
          lin_zero_10_50, lin_zero_20_50, lin_zero_20_30, lin_zero_20_70, lin_50pc_20_50, lin_50pc_20_50_extend65, lin_50pc_20_50_extend80,
          lin_50pc_10_50_extend90, lin_75pc_10_50_extend90, lin_80pc_20_50, lin_80pc_20_50_extend95, lin_90pc_20_50_extend95,
-   lin_99-98-90pc_20_50-60-100, sigmoid_20pc_20_50, sigmoid_50pc_20_50, sigmoid_80pc_20_50 /
+   lin_99-98-90pc_20_50-60-100, sigmoid_20pc_20_50, sigmoid_50pc_20_50, sigmoid_80pc_20_50, bespoke, bespoke_waste, bespoke_waste_orderly /
 
   t_scen15(t_all) Target years for transition to exogenous scenario diets
-       / y2010, y2030, y2050 /
+       / y2010, y2015, y2020, y2025, y2030, y2035, y2040, y2045, y2050 /
 
   kcal_scen15  Scenario of daily per capita calorie intake
-       / 2100kcal, 2500kcal /
+       / 2100kcal, 2500kcal, bau, healthy_BMI, endogenous /
 
   EAT_scen15  Scenario of daily per capita calorie intake
-       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat /
+       / BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat, fps_higher_rm, nature_tech, constant, nature_tech_5pc,
+       nature_tech_10pc, nature_tech_20pc /
 
    EAT_monogastrics15(kfo) monogastic products
       / livst_pig, livst_egg, livst_chick /

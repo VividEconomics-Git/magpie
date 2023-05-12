@@ -155,7 +155,7 @@ parameters
 
 * transition to exogenous scenario diets
  i15_intake_scen_target(t,iso)                  Target for total per capita calorie intake according to an exogenous diet scenario (kcal per capita per day)
- i15_intake_EATLancet_all(iso,kcal_scen15,EAT_scen15,kfo)       Food-specific per capita calorie intake according to various EAT Lancet diet scenarios (kcal per capita per day)
+ i15_intake_EATLancet_all(t,iso,kcal_scen15,EAT_scen15,kfo)       Food-specific per capita calorie intake according to various EAT Lancet diet scenarios (kcal per capita per day)
  i15_intake_EATLancet(iso,kfo)                  Food-specific per capita calorie intake according to EAT Lancet diet scenario (kcal per capita per day)
  i15_intake_detailed_scen_target(t,iso,kfo)     Target for food-specific per capita calorie intake according to an exogenous diet scenario (kcal per capita per day)
 
