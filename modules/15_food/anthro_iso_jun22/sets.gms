@@ -184,6 +184,8 @@ sets
          livst_rum,livst_pig,livst_chick, livst_egg, livst_milk, fish,
          others /
 
+   livestock_kcal_scen All staple food products according to EAT Lancet definition
+       / test /
 ;
 
 alias(kst,kst2);

@@ -152,6 +152,9 @@ parameters
  p15_intake_detail(t,iso,kfo)                   Intake by food group (kcal per capita per day)
  p15_demand2intake_ratio_detail(t,iso,kfo)      Food waste ratio by food group (kcal per kcal)
  p15_demand2intake_ratio_detail_preexo(t,iso,kfo) Food waste as outcome of regression (kcal per kcal)
+ 
+* endogenous livestock kcal target
+* p15_kcal_pc_livestock_intake_target(iso)        Maximum kcal per capita per day intake target used for downwards convergence of livestock products (kcal per capita per day)
 
 * transition to exogenous scenario diets
  i15_intake_scen_target(t,iso)                  Target for total per capita calorie intake according to an exogenous diet scenario (kcal per capita per day)

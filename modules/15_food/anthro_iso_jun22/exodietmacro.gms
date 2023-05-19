@@ -133,7 +133,7 @@ if (s15_run_diet_postprocessing = 1,
                                  p15_kcal_pc_iso(t,iso,kfo_pp)
                                  /p15_kcal_pc_iso_plant_orig(t,iso);
 
-  p15_kcal_pc_livestock_supply_target(iso) = s15_kcal_pc_livestock_intake_target * f15_overcons_FAOwaste(iso,"livst_rum");
+  p15_kcal_pc_livestock_supply_target(iso) = f15_kcal_pc_livestock_intake_target(iso, "%c15_livestock_kcal_scen%") * f15_overcons_FAOwaste(iso,"livst_rum");
 
   loop(iso$(p15_kcal_pc_iso_livestock_orig(t,iso) > p15_kcal_pc_livestock_supply_target(iso)),
   p15_kcal_pc_iso(t,iso,kfo_lp) = p15_livestock_kcal_structure_orig(t,iso,kfo_lp)
@@ -310,6 +310,9 @@ $elseif "%c15_kcal_scen%" == "no_underweight_half_overweight"
 $elseif "%c15_kcal_scen%" == "endo"
   i15_intake_scen_target(t,iso) = p15_intake_total(t,iso);
   p15_bmi_shr_target(t,iso,sex,age,bmi_group15) = p15_bmi_shr_calibrated(t,iso,sex,age,bmi_group15);
+$elseif "%c15_kcal_scen%" == "endogenous"
+  i15_intake_scen_target(t,iso) = p15_intake_total(t,iso);
+  p15_bmi_shr_target(t,iso,sex,age,bmi_group15) = p15_bmi_shr_calibrated(t,iso,sex,age,bmi_group15);
 $else
   i15_intake_scen_target(t,iso) = sum(kfo,i15_intake_EATLancet_all("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo));
   p15_bmi_shr_target(t,iso,sex,age,bmi_group15)=0;
@@ -331,8 +334,51 @@ $endif
 
 *' CM code edits
 *' attempting to add annual specification to EATLancet like old realisation
-
 $ifthen "%c15_exo_foodscen%" == "bespoke"
+  if((m_year(t) = 2010),
+  i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    Elseif((m_year(t) = 2015)),
+  i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2015",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+          
+    Elseif((m_year(t) = 2020)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2020",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    Elseif((m_year(t) = 2025)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2025",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    Elseif((m_year(t) = 2030)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2030",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    Elseif((m_year(t) = 2035)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2035",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    Elseif((m_year(t) = 2040)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2040",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    Elseif((m_year(t) = 2045)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2045",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    Elseif((m_year(t) = 2050)),
+      i15_intake_EATLancet(iso,kfo) =
+          f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
+
+    else
+        i15_intake_EATLancet(iso,kfo) =
+                f15_intake_EATLancet("y2050",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);    
+    );
+
+$ontext
+$ifthen "%c15_exo_foodscen%" == "bespoke"
+
   if((m_year(t) = 2010),
   i15_intake_EATLancet(iso,kfo) =
           f15_intake_EATLancet("y2010",iso,"%c15_kcal_scen%","%c15_EAT_scen%",kfo);
@@ -747,6 +793,7 @@ $ifthen "%c15_exo_foodscen%" == "bespoke"
         = s15_alc_scen*i15_intake_scen_target(t,iso);
     );
 *' might need to add: i15_intake_scen_target(t,iso) = sum(kfo,i15_intake_EATLancet(iso,kfo));
+$offtext
 $else
        i15_intake_EATLancet(iso,kfo) =
           i15_intake_EATLancet_all("y2050",iso,"2100kcal","%c15_EAT_scen%",kfo);
@@ -789,8 +836,7 @@ $else
       i15_intake_detailed_scen_target(t,iso,"alcohol")$(i15_intake_detailed_scen_target(t,iso,"alcohol") > s15_alc_scen*i15_intake_scen_target(t,iso))
         = s15_alc_scen*i15_intake_scen_target(t,iso);
     );
-$endif
-
+    
 
 
     i15_intake_detailed_scen_target(t,iso,EAT_staples)$(sum(EAT_staples2,i15_intake_EATLancet(iso,EAT_staples2))>0) = (
@@ -806,6 +852,8 @@ $endif
 
   p15_bmi_shr_calibrated(t,iso,sex,age,bmi_group15) = p15_bmi_shr_calibrated(t,iso,sex,age,bmi_group15) * (1-i15_exo_foodscen_fader(t,iso))
                       + p15_bmi_shr_target(t,iso,sex,age,bmi_group15) * i15_exo_foodscen_fader(t,iso);
+$endif
+
 
 
 );

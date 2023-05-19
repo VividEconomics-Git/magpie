@@ -31,14 +31,15 @@ $setglobal c15_livescen  constant
 $setglobal c15_rumdairyscen  constant
 $setglobal c15_rumdairy_scp_scen  constant
 $setglobal c15_livescen_target  constant
-$setglobal c15_exo_foodscen  lin_zero_20_50
+$setglobal c15_exo_foodscen  bespoke
+$setglobal c15_livestock_kcal_scen  test
 
-$setglobal c15_kcal_scen  healthy_BMI
+$setglobal c15_kcal_scen  2100kcal
 *   options:    healthy_BMI, 2100kcal, 2500kcal,
 *              endo, no_underweight, no_overweight
 *              half_overweight, no_underweight_half_overweight
 
-$setglobal c15_EAT_scen  FLX
+$setglobal c15_EAT_scen  nature_tech
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 
@@ -90,7 +91,7 @@ scalar s15_exo_waste Switch for transition towards exogenous food waste scenario
 
 scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.2 /;
 
-scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 0 /;
+scalar s15_exo_diet Switch for transition towards exogenous diet scenario (1)  / 1 /;
 * The following switches only become active when s15_exo_diet is active
 * They define which components of the diet should become active
 * If the switch is set to 1,the exogenous diets are activated.
@@ -236,6 +237,12 @@ $ondelim
 $include "./modules/15_food/input/f15_food_substitution_fader.csv"
 $offdelim;
 
+*** Livestock kcal target scenarios
+
+table f15_kcal_pc_livestock_intake_target(iso, livestock_kcal_scen)   Fader for food substitution scenarios (1)
+$ondelim
+$include "./modules/15_food/input/f15_kcal_pc_livestock_intake_target.csv"
+$offdelim;
 
 *** Exogenous food demand scenarios
 
