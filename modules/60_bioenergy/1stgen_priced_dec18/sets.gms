@@ -63,14 +63,13 @@ sets
       SSPDB-SSP5-45-REMIND-MAGPIE,
       SSPDB-SSP5-60-REMIND-MAGPIE,
       SSPDB-SSP5-Ref-REMIND-MAGPIE,
+      fps_lower,
       fps_130,
       fps_170,
       fps_base,
-      BAU,
-      2C_Orderly_Transition,
-      2C_Disorderly_Transition,
-      15C_Policy-Driven,
-      15C_Tech-Driven /
+      fps_half,
+      gep_nores,
+      zero /
 
 ;
 *######################### R SECTION END (SETS) ################################
@@ -85,9 +84,9 @@ sets
         / oils, ethanol /
 
    scen1st60 first generation bioenergy scenarios
-       / const2020, const2030, phaseout2020 /
+       / const2020, const2030, phaseout2020, gep /
 
    scen2ndres60 residues for second generation bioenergy scenarios
-       / ssp1, ssp2, ssp3, ssp4, ssp5, sdp, off /
+       / ssp1, ssp2, ssp3, ssp4, ssp5, sdp, off, gep_allres  /
 
 ;

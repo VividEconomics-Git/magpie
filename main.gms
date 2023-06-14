@@ -148,28 +148,28 @@ $title magpie
 
 *##################### R SECTION START (VERSION INFO) ##########################
 * 
-* Used data set: rev4.84_694a3a5b_magpie.tgz
-* md5sum: 5f64cdef99e7ec2b4131cb0f198fbf03
+* Used data set: rev4.79_694a3a5b_magpie.tgz
+* md5sum: 28eee8cf95892b273096352d52813da0
 * Repository: ./patch_inputdata
 * 
-* Used data set: rev4.84_694a3a5b_fd712c0b_cellularmagpie_c200_MRI-ESM2-0-ssp370_lpjml-8e6c5eb1.tgz
-* md5sum: 96ce99abd3c05b532798660065a88a8a
+* Used data set: rev4.79_694a3a5b_fd712c0b_cellularmagpie_c200_MRI-ESM2-0-ssp370_lpjml-8e6c5eb1.tgz
+* md5sum: a5c0241ae830069035195b130da20381
 * Repository: ./patch_inputdata
 * 
-* Used data set: rev4.87_694a3a5b_validation.tgz
-* md5sum: 32d786ce7ffc33e9cfaba2fa811e084b
+* Used data set: rev4.79_694a3a5b_validation.tgz
+* md5sum: a78bc982dc428c602b3014019da4726d
 * Repository: ./patch_inputdata
 * 
 * Used data set: additional_data_rev4.32.tgz
-* md5sum: 721ffbc57edddfb5e9b76546c51906f2
+* md5sum: NA
 * Repository: https://rse.pik-potsdam.de/data/magpie/public
 * 
 * Used data set: calibration_ipr_v4.6.0.tgz
 * md5sum: 603b8b7ce0ab13aa0bb924b2b4894695
 * Repository: ./patch_inputdata
 * 
-* Used data set: ipr2023.tgz
-* md5sum: 39aadbb7e0623571afd6b911b21830c2
+* Used data set: patch_IPR2022_ILU_230614.tgz
+* md5sum: 5319acd2d1e93e5e0acca6cc0291cda9
 * Repository: ./patch_inputdata
 * 
 * Low resolution: c200
@@ -183,11 +183,11 @@ $title magpie
 * 
 * Regionscode: 694a3a5b
 * 
-* Regions data revision: 4.84
+* Regions data revision: 4.79
 * 
 * lpj2magpie settings:
 * * LPJmL data: MRI-ESM2-0:ssp370
-* * Revision: 4.84
+* * Revision: 4.79
 * 
 * aggregation settings:
 * * Input resolution: 0.5
@@ -198,15 +198,11 @@ $title magpie
 *     3    9    4   22    1    7    6   26    7   10    5   11    7    8    5   25   26   18
 * * Call: withCallingHandlers(expr, message = messageHandler, warning = warningHandler,     error = errorHandler)
 * 
-* Warning messages:
-* 1: In gms::update_modules_embedding() :
-*   ./modules/38_factor_costs/mixed_reg_feb17/realization.gms not found, this realization cannot be used!
-* 2: In gms::update_modules_embedding() :
-*   ./modules/51_nitrogen/ipcc2006_sep16/realization.gms not found, this realization cannot be used!
-* 3: In gms::update_modules_embedding() :
-*   ./modules/56_ghg_policy/price_jan20/realization.gms not found, this realization cannot be used!
+* Warning message:
+* In file(filename, "r", encoding = encoding) :
+*   cannot open file 'C:/Users/Charlie Briggs/OneDrive - McKinsey & Company/Documents/scripts/start_functions.R': No such file or directory
 * 
-* Last modification (input data): Fri May 19 17:26:42 2023
+* Last modification (input data): Wed Jun 14 14:24:24 2023
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -230,9 +226,9 @@ $offlisting
 **************************MODEL SPECIFIC SCALARS********************************
 *                    Key parameters during model runs
 
-$setglobal c_timesteps  coup2100
+$setglobal c_timesteps  5year2050
 $setglobal c_past  till_2010
-$setglobal c_title  FPS_new
+$setglobal c_title  IPR_GEP_2Gres
 
 scalars
 s_use_gdx   use of gdx files                                       / 0 /

@@ -18,7 +18,7 @@ $setglobal c50_scen_neff_noselect  baseeff_add3_add5_add10_max65
 * maxeff_add3_glo60_glo65, maxeff_add3_glo65_glo75,
 * maxeff_ZhangBy2030, maxeff_ZhangBy2050 /
 
-$setglobal c50_scen_neff_pasture  constant
+$setglobal c50_scen_neff_pasture  constant_min55_min60_min65
 $setglobal c50_scen_neff_pasture_noselect  constant_min55_min60_min65
 * constant, constant_min55_min60_min65
 

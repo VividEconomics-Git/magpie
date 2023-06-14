@@ -13,9 +13,9 @@ v60_2ndgen_bioenergy_dem_residues.up(i,kres) = Inf;
 
 if(m_year(t) <= sm_fix_SSP2,
  i60_1stgen_bioenergy_dem(t,i,kall) =
-             f60_1stgen_bioenergy_dem(t,i,"const2020",kall);
+             f60_1stgen_bioenergy_dem(t,i,"gep",kall);
  i60_res_2ndgenBE_dem(t,i) =
-             f60_res_2ndgenBE_dem(t,i,"ssp2");
+             f60_res_2ndgenBE_dem(t,i,"gep_allres");
 else
  i60_1stgen_bioenergy_dem(t,i,kall) =
              f60_1stgen_bioenergy_dem(t,i,"%c60_1stgen_biodem%",kall);

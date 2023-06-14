@@ -38,7 +38,7 @@ $setglobal c15_kcal_scen  endogenous
 *              endo, no_underweight, no_overweight
 *              half_overweight, no_underweight_half_overweight
 
-$setglobal c15_EAT_scen  nature_tech
+$setglobal c15_EAT_scen  fps
 *   options:   BMK, FLX, PSC, VEG, VGN, FLX_hmilk, FLX_hredmeat
 
 
@@ -86,7 +86,7 @@ scalar s15_maxiter Scalar defining maximum number of iterations (1) / 5 /;
 scalar s15_convergence Convergence criterion (1) / 0.005 /;
 * maximum relative per-capita gdp difference within a region between two iteratios
 
-scalar s15_exo_waste Switch for transition towards exogenous food waste scenario (1)  / 1 /;
+scalar s15_exo_waste Switch for transition towards exogenous food waste scenario (1)  / 0 /;
 
 scalar s15_waste_scen Scenario target for the ratio between food demand and intake (1)  / 1.2 /;
 
